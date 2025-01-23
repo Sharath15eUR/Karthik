@@ -1,0 +1,6 @@
+total 4
+drwxrwxr-x 2 karthick-s-n karthick-s-n 4096 Jan 23 10:25 dir2
+lrwxrwxrwx 1 karthick-s-n karthick-s-n   16 Jan 23 10:27 file_link -> dir2/myfile3.txt
+karthick-s-n@karthick-s-n-1-2:~/Desktop/LINUX_TRNG/module1/prob3$
+karthick-s-n@karthick-s-n-1-2:~/Desktop/LINUX_TRNG/module1/prob3$ readlink dir1/file_link
+dir2/myfile3.txt

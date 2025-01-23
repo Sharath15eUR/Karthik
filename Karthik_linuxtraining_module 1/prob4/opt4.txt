@@ -1,0 +1,11 @@
+
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.1  0.6 105208 12088 ?        Ss   09:21   0:07 /sbin/init splash
+root           2  0.0  0.0      0     0 ?        S    09:21   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   09:21   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   09:21   0:00 [rcu_par_gp]
+root           5  0.0  0.0      0     0 ?        I<   09:21   0:00 [slub_flushwq]
+root           6  0.0  0.0      0     0 ?        I<   09:21   0:00 [netns]
+root          11  0.0  0.0      0     0 ?        I<   09:21   0:00 [mm_percpu_wq]
+root          12  0.0  0.0      0     0 ?        I    09:21   0:00 [rcu_tasks_kthread]
+root          13  0.0  0.0      0     0 ?        I    09:21   0:00 [rcu_tasks_rude_kthread]

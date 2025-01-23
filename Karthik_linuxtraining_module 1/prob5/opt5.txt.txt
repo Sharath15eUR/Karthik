@@ -1,0 +1,14 @@
+total 24
+-rw-rw-r-- 1 karthick-s-n karthick-s-n 229 Jan 23 10:47 opt4.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n 355 Jan 23 10:47 timestamp2.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n 280 Jan 23 10:47 timestamp1.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n  17 Jan 23 10:47 myfile1.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n  14 Jan 23 10:47 myfile2.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n  11 Jan 23 10:47 myfile3.txt
+total 24
+-rw-rw-r-- 1 karthick-s-n karthick-s-n  11 Jan 23 10:47 myfile3.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n  14 Jan 23 10:47 myfile2.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n  17 Jan 23 10:47 myfile1.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n 280 Jan 23 10:47 timestamp1.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n 355 Jan 23 10:47 timestamp2.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n 649 Jan 23 10:47 opt4.txt
