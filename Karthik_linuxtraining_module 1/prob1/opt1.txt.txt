@@ -1,0 +1,5 @@
+
+total 12
+-rwxr-xr-x 1 karthick-s-n karthick-s-n   8 Jan 23 09:57 myfile1.txt
+-rw-rw-r-- 1 karthick-s-n karthick-s-n 151 Jan 23 09:57 opt1.txt
+-rwxrwxr-x 1 karthick-s-n karthick-s-n 151 Jan 23 09:56 prob1.sh
