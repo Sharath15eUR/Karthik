@@ -1,6 +1,6 @@
-[ServerConfiguration]
-hostname=localhost
-port=8080
-username=karthick
-password=****
-database=localhost
+server = localhost
+database_host = localhost
+port = 3306
+api_url = http://localhost:8080
+log_path = /var/log/localhost
+timeout = 30
