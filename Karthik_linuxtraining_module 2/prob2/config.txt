@@ -1,0 +1,6 @@
+[ServerConfiguration]
+hostname=localhost
+port=8080
+username=karthick
+password=****
+database=localhost

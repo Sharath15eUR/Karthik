@@ -1,0 +1,6 @@
+[ServerConfiguration]
+hostname=127.0.0.1
+port=8080
+username=karthick
+password=****
+database=127.0.0.1

@@ -1,0 +1,4 @@
+./2l4hvw37.default/favicons.sqlite 5.0M
+./2l4hvw37.default/gmp-gmpopenh264/2.3.2/libgmpopenh264.so 1.6M
+./2l4hvw37.default/places.sqlite 5.0M
+./2l4hvw37.default/storage/permanent/chrome/idb/3870112724rsegmnoittet-es.sqlite 2.7M
