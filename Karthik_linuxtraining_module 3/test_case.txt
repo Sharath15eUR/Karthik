@@ -1,0 +1,91 @@
+# test case to handle the missing arguments, here no arguments are given 
+
+karthick-s-n@karthick-s-n-1-2:~/Desktop/LINUX_TRNG/module3$ ./backup_manager.sh
+call format should be : ./backup_manager.sh <source_dir> <backup_dir> <file_type>
+
+
+# destination backup directory is not created, the shell script automatically creates the directory
+
+# directory structure before backup
+
+karthick-s-n@karthick-s-n-1-2:~/Desktop/LINUX_TRNG/module3$ tree -a
+.
+├── backup_manager.sh
+└── source_for_backup
+    ├── 1.sh
+    ├── 2.sh
+    ├── 3.sh
+    ├── 4.sh
+    ├── 5.sh
+    ├── 6.sh
+    ├── 7.sh
+    ├── 8.sh
+    ├── 9.sh
+    ├── four.txt
+    ├── one.txt
+    ├── three.txt
+    └── two.txt
+
+2 directories, 14 files
+
+
+karthick-s-n@karthick-s-n-1-2:~/Desktop/LINUX_TRNG/module3$ ./backup_manager.sh ~/Desktop/LINUX_TRNG/module3/source_for_backup ~/Desktop/LINUX_TRNG/module3/dest_for_backup  .sh
+
+source directory: source_for_backup
+backup directory: dest_for_backup
+file -------type: .sh
+files to be backed up yo...
+source_for_backup/1.sh
+source_for_backup/2.sh
+source_for_backup/3.sh
+source_for_backup/4.sh
+source_for_backup/5.sh
+source_for_backup/6.sh
+source_for_backup/7.sh
+source_for_backup/8.sh
+source_for_backup/9.sh
+Backing up files yo...
+Backed up: source_for_backup/1.sh (34 bytes)
+Backed up: source_for_backup/2.sh (137 bytes)
+Backed up: source_for_backup/3.sh (142 bytes)
+Backed up: source_for_backup/4.sh (223 bytes)
+Backed up: source_for_backup/5.sh (246 bytes)
+Backed up: source_for_backup/6.sh (380 bytes)
+Backed up: source_for_backup/7.sh (270 bytes)
+Backed up: source_for_backup/8.sh (250 bytes)
+Backed up: source_for_backup/9.sh (317 bytes)
+Backup completed. Report saved to dest_for_backup/backup_report.log.
+
+
+# directory structure after backup
+
+karthick-s-n@karthick-s-n-1-2:~/Desktop/LINUX_TRNG/module3$ tree -a
+.
+├── backup_manager.sh
+├── dest_for_backup
+│   ├── 1.sh
+│   ├── 2.sh
+│   ├── 3.sh
+│   ├── 4.sh
+│   ├── 5.sh
+│   ├── 6.sh
+│   ├── 7.sh
+│   ├── 8.sh
+│   ├── 9.sh
+│   └── backup_report.log
+└── source_for_backup
+    ├── 1.sh
+    ├── 2.sh
+    ├── 3.sh
+    ├── 4.sh
+    ├── 5.sh
+    ├── 6.sh
+    ├── 7.sh
+    ├── 8.sh
+    ├── 9.sh
+    ├── four.txt
+    ├── one.txt
+    ├── three.txt
+    └── two.txt
+
+3 directories, 24 files
