@@ -1,35 +1,24 @@
-# Ensure the script is executed with an input file argument
+# to verify the command line argument input
 if [[ $# -ne 1 ]]; then
-    echo "Usage: $0 <input_file>"
+    echo "Usage: $0 <inp_file>"
     exit 1
 fi
 
-INPUT_FILE="$1"
-OUTPUT_FILE="output.txt"
+INP_FILE="$1"
+OUT_FILE="output.txt"
 
-# Ensure the input file exists
-if [[ ! -f "$INPUT_FILE" ]]; then
-    echo "Error: Input file '$INPUT_FILE' not found."
-    exit 1
-fi
-
-# Clear previous output file if exists
-> "$OUTPUT_FILE"
-
-# Read the input file line by line
+# reading line by line in the input file to extract the pattern
 while IFS= read -r line; do
-    # Extract values using grep
-    FRAME_TIME=$(echo "$line" | grep -oP '(?<=frame.time": ")[^"]*')
-    WLAN_FC_TYPE=$(echo "$line" | grep -oP '(?<=wlan.fc.type": ")[^"]*')
-    WLAN_FC_SUBTYPE=$(echo "$line" | grep -oP '(?<=wlan.fc.subtype": ")[^"]*')
+    FR_TIME=$(echo "$line" | grep -oP '(?<=frame.time": ")[^"]*')
+    WLAN_TYPE=$(echo "$line" | grep -oP '(?<=wlan.fc.type": ")[^"]*')
+    WLAN_STYP=$(echo "$line" | grep -oP '(?<=wlan.fc.subtype": ")[^"]*')
 
-    # Only write if at least one field is non-empty
-    if [[ -n "$FRAME_TIME" || -n "$WLAN_FC_TYPE" || -n "$WLAN_FC_SUBTYPE" ]]; then
-        [[ -n "$FRAME_TIME" ]] && echo "\"frame.time\": \"$FRAME_TIME\"," >> "$OUTPUT_FILE"
-        [[ -n "$WLAN_FC_TYPE" ]] && echo "\"wlan.fc.type\": \"$WLAN_FC_TYPE\"," >> "$OUTPUT_FILE"
-        [[ -n "$WLAN_FC_SUBTYPE" ]] && echo "\"wlan.fc.subtype\": \"$WLAN_FC_SUBTYPE\"," >> "$OUTPUT_FILE"
-        echo >> "$OUTPUT_FILE"  # Add a newline for readability
+    if [[ -n "$FR_TIME" || -n "$WLAN_TYPE" || -n "$WLAN_STYP" ]]; then
+        [[ -n "$FR_TIME" ]] && echo "\"frame.time\": \"$FR_TIME\"," >> "$OUT_FILE"
+        [[ -n "$WLAN_TYPE" ]] && echo "\"wlan.fc.type\": \"$WLAN_TYPE\"," >> "$OUT_FILE"
+        [[ -n "$WLAN_STYP" ]] && echo "\"wlan.fc.subtype\": \"$WLAN_STYP\"," >> "$OUT_FILE"
+        echo >> "$OUT_FILE" 
     fi
-done < "$INPUT_FILE"
+done < "$INP_FILE"
 
-echo "Extraction completed. Output saved in '$OUTPUT_FILE'."
+echo "extraction completed!!! Output saved in "output.txt" YO !!!!."
