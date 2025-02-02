@@ -1,5 +1,6 @@
 #various test cases being checked with the file_analyzer script
 
+#directory structure of the entire module 
 karthick-s-n@karthick-s-n-1-2:~/Desktop/LINUX_TRNG/module5$ tree -a
 .
 ├── file_analyzer.sh
@@ -11,7 +12,7 @@ karthick-s-n@karthick-s-n-1-2:~/Desktop/LINUX_TRNG/module5$ tree -a
     │   └── log2.txt
     └── script.sh
 
-4 directories, 6 files
+4 directories, 5 files
 
 karthick-s-n@karthick-s-n-1-2:~/Desktop/LINUX_TRNG/module5$ ./file_analyzer.sh 
 
