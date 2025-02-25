@@ -1,0 +1,125 @@
+root@karthick-s-n-1-2:/# ping google.com
+PING google.com (142.250.183.14) 56(84) bytes of data.
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=1 ttl=52 time=57.5 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=2 ttl=52 time=88.3 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=3 ttl=52 time=83.5 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=4 ttl=52 time=83.4 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=5 ttl=52 time=84.4 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=6 ttl=52 time=90.7 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=7 ttl=52 time=74.1 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=8 ttl=52 time=136 ms
+^C
+--- google.com ping statistics ---
+8 packets transmitted, 8 received, 0% packet loss, time 7030ms
+rtt min/avg/max/mdev = 57.516/87.281/136.334/20.966 ms
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ping -c 4 youtube.com
+PING youtube.com (142.250.183.142) 56(84) bytes of data.
+64 bytes from bom07s31-in-f14.1e100.net (142.250.183.142): icmp_seq=1 ttl=52 time=150 ms
+64 bytes from bom07s31-in-f14.1e100.net (142.250.183.142): icmp_seq=2 ttl=52 time=147 ms
+64 bytes from bom07s31-in-f14.1e100.net (142.250.183.142): icmp_seq=3 ttl=52 time=82.8 ms
+64 bytes from bom07s31-in-f14.1e100.net (142.250.183.142): icmp_seq=4 ttl=52 time=90.7 ms
+
+--- youtube.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3007ms
+rtt min/avg/max/mdev = 82.810/117.646/150.181/31.056 ms
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ping -i 5 google.com
+PING google.com (142.250.183.14) 56(84) bytes of data.
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=1 ttl=52 time=76.1 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=2 ttl=52 time=125 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=3 ttl=52 time=81.4 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=4 ttl=52 time=74.2 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=5 ttl=52 time=79.5 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=6 ttl=52 time=76.5 ms
+64 bytes from bom07s30-in-f14.1e100.net (142.250.183.14): icmp_seq=7 ttl=52 time=110 ms
+^C
+--- google.com ping statistics ---
+7 packets transmitted, 7 received, 0% packet loss, time 30038ms
+rtt min/avg/max/mdev = 74.219/88.976/125.491/18.703 ms
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ping -s 10 gmail.com
+PING gmail.com (142.250.67.197) 10(38) bytes of data.
+18 bytes from bom12s08-in-f5.1e100.net (142.250.67.197): icmp_seq=1 ttl=111
+18 bytes from bom12s08-in-f5.1e100.net (142.250.67.197): icmp_seq=2 ttl=111
+18 bytes from bom12s08-in-f5.1e100.net (142.250.67.197): icmp_seq=3 ttl=111
+18 bytes from bom12s08-in-f5.1e100.net (142.250.67.197): icmp_seq=4 ttl=111
+18 bytes from bom12s08-in-f5.1e100.net (142.250.67.197): icmp_seq=5 ttl=111
+18 bytes from bom12s08-in-f5.1e100.net (142.250.67.197): icmp_seq=6 ttl=111
+^C
+--- gmail.com ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5022ms
+
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ping -t drive.google.com
+ping: invalid argument: 'drive.google.com'
+root@karthick-s-n-1-2:/# ping -t 2 google.com
+PING google.com (142.250.183.14) 56(84) bytes of data.
+From 192.168.43.1 (192.168.43.1) icmp_seq=1 Time to live exceeded
+From 192.168.43.1 (192.168.43.1) icmp_seq=2 Time to live exceeded
+From 192.168.43.1 (192.168.43.1) icmp_seq=3 Time to live exceeded
+From 192.168.43.1 (192.168.43.1) icmp_seq=4 Time to live exceeded
+From 192.168.43.1 (192.168.43.1) icmp_seq=5 Time to live exceeded
+^C
+--- google.com ping statistics ---
+5 packets transmitted, 0 received, +5 errors, 100% packet loss, time 4014ms
+
+root@karthick-s-n-1-2:/# ping -t 10 google.com
+PING google.com (142.250.183.14) 56(84) bytes of data.
+^C
+--- google.com ping statistics ---
+37 packets transmitted, 0 received, 100% packet loss, time 36866ms
+
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# arp -a
+_gateway (10.0.2.2) at 52:54:00:12:35:02 [ether] on enp0s3
+root@karthick-s-n-1-2:/# arp -s 192.168.1.58 00:1d:5f:8d:7a:6b
+SIOCSARP: Network is unreachable
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::a00:27ff:fed2:fc66  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:d2:fc:66  txqueuelen 1000  (Ethernet)
+        RX packets 344  bytes 109044 (109.0 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 443  bytes 53046 (53.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 599  bytes 49234 (49.2 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 599  bytes 49234 (49.2 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ifconfig enp0s3
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::a00:27ff:fed2:fc66  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:d2:fc:66  txqueuelen 1000  (Ethernet)
+        RX packets 344  bytes 109044 (109.0 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 443  bytes 53046 (53.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ifconfig enp0s3 up
+root@karthick-s-n-1-2:/# ifconfig lo up
+root@karthick-s-n-1-2:/# ifconfig lo down
+root@karthick-s-n-1-2:/# ifconfig lo up
+root@karthick-s-n-1-2:/# 
+

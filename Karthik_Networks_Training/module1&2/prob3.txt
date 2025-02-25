@@ -1,0 +1,49 @@
+Exploring Wireshark, TCPDump, and Cisco Packet Tracer for Packet Filtering
+
+Packet filtering is most crucial in analyzing network traffic by capturing and filtering the required traffic. This document covers three popular tools, namely Wireshark, TCPDump, and Cisco Packet Tracer.
+
+1. Wireshark—GUI-Based Packet Capture & Filtering
+
+Wireshark is a graphical network protocol analyzer that captures network traffic and provides inspection facilities.
+
+Installation: 
+sudo apt update && sudo apt install wireshark -y
+
+
+Steps to capture Packets using Wireshark
+
+Open Wireshark.
+Choose a network interface (i.e. eth0, wlan0).
+Click on Start Capture.
+Wireshark Filters
+
+Filter by protocol: ip, ipv6, tcp, udp, icmp.
+Filter by IP: ip.src == 192.168.1.100, ip.dst == 192.168.1.1, ip.addr == 8.8.8.8.
+Filter by port: tcp.port == 80, udp.port == 53, tcp.port == 22.
+
+2. TCPDump—Command-Line Packet Capture Tool
+
+TCPDump is a tool for command-line packet capture and filtering of other network traffic.
+
+Installation
+
+sudo apt install tcpdump -y
+
+Capture Packets with TCPDump
+
+To capture all packets:
+
+sudo tcpdump -i eth0
+
+To write packets to a file:
+
+sudo tcpdump -i eth0 -w capture.pcap
+
+Filters For TCPDump
+
+Capture HTTP traffic: tcpdump -i eth0 port 80
+Capture packets to/from an IP: tcpdump -i eth0 host 192.168.1.100
+Capture ping packets: tcpdump -i eth0 icmp
+Capture packets for HTTPS: tcpdump -i eth0 'tcp and dst port 443'
+
+

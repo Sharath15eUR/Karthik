@@ -1,0 +1,75 @@
+Logging into Your Home Router and Checking Connected Devices
+
+Step 1: Accessing the Router's Web Interface
+1. Open any web browser  
+2. Type your router's IP address into the address bar:  
+   http://192.168.1.1 or http://192.168.0.1
+3. Login using the admin credentials
+
+Step 2: Checking Connected Devices  
+1. Look for "Device List", "Connected Devices" or "LAN Status" .  
+2. View the list of all devices connected to your Wi-Fi or Ethernet network.  
+3. This list generally shows:  
+   	IP Address 
+   	MAC Address   
+   	Device Name   
+
+Step 3: Disconnect Unauthorized Devices
+1. If you see any unknown device connected, you can block it using:  
+   	MAC Address Filtering: Add the MAC address of the device to the blocklist.  
+   	Change Wi-Fi Password: Change the password to prevent unauthorized access.
+
+
+
+How a DHCP Server Assigns IP Addresses in a Network
+
+The Dynamic Host Configuration Protocol (DHCP) is used for automatically assigning IP addresses to network devices.
+
+DHCP Process of IP Address Assignment  
+1. DHCP Discovery: A request for an IP address is broadcast by the device connecting to a network.  
+2. DHCP Offer: A DHCP server makes an offer with one of the addresses in its pool.  
+3. DHCP Request: Device requests a lease for an address that would be assigned to it.  
+4. DHCP Acknowledgment (ACK): The server acknowledges and assigns the IP address for a limited period.
+
+	  dhclient -v 
+ 
+Static vs Dynamic IPs  
+	Dynamic IP: Temporary assignment that changes when the lease expires.  
+	Static IP: Manually assigned to a device for stability (e.g., servers, printers).
+
+
+
+Connecting to a Remote Machine via SSH and Telnet
+
+SSH - Secure Shell  
+SSH provides secure and encrypted remote connections.
+
+Installing SSH  
+	sudo apt install openssh-client -y  
+
+Connecting to a Remote Server  
+	ssh username@remote-ip  
+
+Exit SSH Session  
+	exit
+
+Telnet - Insecure Remote Access
+
+Telnet is an old remote-access protocol that does not utilize encryption.
+
+Install Telnet  
+	sudo apt install telnet -y  
+
+Connect to a Remote Server  	
+	telnet remote-ip  
+
+Differences Between SSH and Telnet
+	Security:
+  		SSH: Encrypted  
+   		Telnet: Unencrypted  
+	Application:  
+  		SSH: Secure remote login  
+  		Telnet: Used for legacy systems  
+	Default Port: 
+  		SSH: 22  
+  		Telnet: 23

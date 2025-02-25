@@ -1,0 +1,80 @@
+root@karthick-s-n-1-2:/# tcpdump
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on enp0s3, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+
+21:33:02.186613 IP karthick-s-n-1-2.38935 > 192.168.43.1.domain: 52472+ A? connectivity-check.ubuntu.com. (47)
+21:33:02.251167 IP karthick-s-n-1-2.53341 > 192.168.43.1.domain: 41114+ PTR? 1.43.168.192.in-addr.arpa. (43)
+21:33:02.254940 IP 192.168.43.1.domain > karthick-s-n-1-2.53341: 41114 NXDomain 0/0/0 (43)
+21:33:02.256205 IP karthick-s-n-1-2.60907 > 192.168.43.1.domain: 8608+ PTR? 15.2.0.10.in-addr.arpa. (40)
+21:33:02.259990 IP 192.168.43.1.domain > karthick-s-n-1-2.60907: 8608 NXDomain 0/0/0 (40)
+21:33:05.213076 IP 192.168.43.1.domain > karthick-s-n-1-2.38935: 52472 12/0/0 A 185.125.190.97, A 185.125.190.98, A 185.125.190.49, A 91.189.91.49, A 185.125.190.96, A 185.125.190.48, A 91.189.91.96, A 185.125.190.17, A 91.189.91.48, A 91.189.91.97, A 185.125.190.18, A 91.189.91.98 (239)
+21:33:05.216408 IP karthick-s-n-1-2.54774 > ubuntu-content-cache-2.ps5.canonical.com.http: Flags [S], seq 2744414376, win 64240, options [mss 1460,sackOK,TS val 1270827448 ecr 0,nop,wscale 7], length 0
+21:33:05.276351 IP karthick-s-n-1-2.53602 > 192.168.43.1.domain: 26649+ PTR? 97.190.125.185.in-addr.arpa. (45)
+21:33:05.408023 IP ubuntu-content-cache-2.ps5.canonical.com.http > karthick-s-n-1-2.54774: Flags [S.], seq 14976001, ack 2744414377, win 65535, options [mss 1460], length 0
+21:33:05.408257 IP karthick-s-n-1-2.54774 > ubuntu-content-cache-2.ps5.canonical.com.http: Flags [.], ack 1, win 64240, length 0
+21:33:05.408732 IP karthick-s-n-1-2.54774 > ubuntu-content-cache-2.ps5.canonical.com.http: Flags [P.], seq 1:89, ack 1, win 64240, length 88: HTTP: GET / HTTP/1.1
+21:33:05.409216 IP ubuntu-content-cache-2.ps5.canonical.com.http > karthick-s-n-1-2.54774: Flags [.], ack 89, win 65535, length 0
+21:33:05.615885 IP ubuntu-content-cache-2.ps5.canonical.com.http > karthick-s-n-1-2.54774: Flags [P.], seq 1:186, ack 89, win 65535, length 185: HTTP: HTTP/1.1 204 No Content
+21:33:05.615888 IP ubuntu-content-cache-2.ps5.canonical.com.http > karthick-s-n-1-2.54774: Flags [F.], seq 186, ack 89, win 65535, length 0
+21:33:05.616105 IP karthick-s-n-1-2.54774 > ubuntu-content-cache-2.ps5.canonical.com.http: Flags [.], ack 186, win 64055, length 0
+21:33:05.617220 IP karthick-s-n-1-2.54774 > ubuntu-content-cache-2.ps5.canonical.com.http: Flags [F.], seq 89, ack 187, win 64055, length 0
+21:33:05.618223 IP ubuntu-content-cache-2.ps5.canonical.com.http > karthick-s-n-1-2.54774: Flags [.], ack 90, win 65535, length 0
+21:33:10.285378 IP karthick-s-n-1-2.53602 > 192.168.43.1.domain: 26649+ PTR? 97.190.125.185.in-addr.arpa. (45)
+21:33:11.814242 IP 192.168.43.1.domain > karthick-s-n-1-2.53602: 26649 1/0/0 PTR ubuntu-content-cache-2.ps5.canonical.com. (99)
+^C
+19 packets captured
+19 packets received by filter
+0 packets dropped by kernel
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# tcpdump -i enp0s3 port 80
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on enp0s3, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^C
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ip route | grep default
+default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ping -c 4 10.0.2.2
+PING 10.0.2.2 (10.0.2.2) 56(84) bytes of data.
+64 bytes from 10.0.2.2: icmp_seq=1 ttl=64 time=0.318 ms
+64 bytes from 10.0.2.2: icmp_seq=2 ttl=64 time=0.730 ms
+64 bytes from 10.0.2.2: icmp_seq=3 ttl=64 time=1.15 ms
+64 bytes from 10.0.2.2: icmp_seq=4 ttl=64 time=0.383 ms
+
+--- 10.0.2.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3015ms
+rtt min/avg/max/mdev = 0.318/0.645/1.150/0.330 ms
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         10.0.2.2        0.0.0.0         UG        0 0          0 enp0s3
+10.0.2.0        0.0.0.0         255.255.255.0   U         0 0          0 enp0s3
+169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 enp0s3
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:d2:fc:66 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute enp0s3
+       valid_lft 83438sec preferred_lft 83438sec
+    inet6 fe80::a00:27ff:fed2:fc66/64 scope link 
+       valid_lft forever preferred_lft forever
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# 
+root@karthick-s-n-1-2:/# iwconfig
+lo        no wireless extensions.
+
+enp0s3    no wireless extensions.
+root@karthick-s-n-1-2:/#

@@ -1,0 +1,51 @@
+Clarification of Events When Duplicate IPs are Set Up in a Network  
+
+A scenario in which two devices in a network have been assigned the same IP address results in an IP address conflict. This leads to many issues of different kinds regarding communication within the network.
+
+Causes of Duplicate IP Address Conflicts
+
+1. Manual Static IP Assignment: A network administrator can assign the same IP to various devices manually.  
+
+2. Misconfiguration of a DHCP Server: A DHCP server can assign an IP, which already is statically assigned for some other device.  
+
+3. Clone of the MAC Address: Similar MAC addresses may get the exact IP due to devices with such addressing.
+
+4. Network Problems While Reconnecting: During the reconnecting time after a long period, devices may get an already assigned IP.
+
+Effects of Duplicate IP Addresses
+  
+1. Loss of network for communication: Devices having conflicting IP addresses do not communicate.  
+
+2. Occasional Loss of Network Connectivity: Devices may show problems like slow responses or some set of packets getting lost.  
+
+3. Routing and security issues: Their conflicting IPs may contribute to incorrect routing and vulnerability for security issues.  
+
+4. System Log Errors: Conflicted networks report this in their logs, complicating the troubleshooting procedures.
+
+How to solve duplicate IP conflicts
+  
+1. Use DHCP to automatically assign IP addresses, ensuring that stampedes do not have duplicate IP addresses.  
+2. Check the list for IP assignments: Check for IP assignments on your router or DHCP server.  
+3. Release and renew the IP address:  
+   	sudo dhclient -v 
+4. Manually assign a different IP: Transfer the static IP of one conflicting device to a new one.  
+5. Checking of MAC Addresses: This will ensure that no two devices are using the cloned MAC addresses with the same IP.
+
+
+Remote accessing a system using AnyDesk and Remote Desktop Connection**  
+
+Considering that the user will have access to the one managing the other system through a network with these remote access tools.
+
+
+1. AnyDesk  
+Lightweight remote access software with low latency performance.  
+ Setting: Install AnyDesk on both systems and use remote device's ID for the user.  
+ Use case: Top recommendation for personal remote access and IT support.  
+
+
+2. Remote Desktop Connection (RDP) 
+RDP is a Microsoft proprietary protocol providing remote access to Windows PCs.  
+ Setting: The user must enable Remote Desktop on the remote system and employ Remote Desktop Connection (mstsc) on the client.  
+ Use Case: Good for enterprise Windows-based remote access.  
+
+

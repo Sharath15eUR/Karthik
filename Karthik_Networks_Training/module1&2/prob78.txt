@@ -1,0 +1,66 @@
+How to Verify Default Gateway Reachability and Once Again Understand it as a Default Gateway
+
+Default Gateway
+
+A default gateway is a router or network device through which traffic from a local network is sent to external networks (for example, such as the internet). In most scenarios, when the device wants to communicate with outside systems, it is the very first hop in the whole network.
+
+  ip route | grep default
+
+Reachability of a Default Gateway
+  
+To ascertain whether the default gateway is alive, you can use the **ping** command:
+
+  ping -c 4 <default-gateway-IP>
+
+If replies come back, it means that the gateway is reachable. If it fails, it's likely a network problem.
+
+These are the general steps to diagnose issues related to the default gateway.  
+1. Check Network Connection:** Ensure that your device is connected to the correct network.  
+2. Restart the Router:** Sometimes, it just needs restarting.  
+3. Check the Routing Table (Linux/macOS):
+   	netstat -rn
+
+Important for Checking Network Interfaces Using iwconfig/ifconfig
+ 
+The `ifconfig` command provides much more information regarding the network interfaces.  
+
+	ifconfig
+
+
+
+Crucial Parameters Dealing with Outputs of ifconfig 
+	inet: The allocated IP address  
+	netmask: The subnet mask  
+	broadcast: The broadcast address  
+	RX packets: Hugely received packets  
+	TX packets: Totally sent packets  
+	MTU: Maximisation Transmission Unit (default: 1500 bytes)  
+	TX errors/RX errors: Packet transmission errors  
+
+Check Speed and Status of Network Interface  
+To see the speed of interfaces: 
+	iperf3 -y
+
+To see MTU settings: 
+	ip link show eth0
+
+To change MTU size (performance tuning):  
+	sudo ifconfig eth0 mtu 1400
+
+Understand `iwconfig` (For Wireless Interfaces)
+
+The command `iwconfig` is used for pretensioning controlling the wireless network interfaces.  
+
+iwconfig
+
+Important Parameters in the Outputs of iwconfig  
+	ESSID: Name of the connected Wi-Fi network  
+	Frequency: Operating frequency of the network  
+	Access Point: MAC address of the Wi-Fi router  
+	Bit Rate: Speed of the wireless connection  
+	Tx-Power: Transmission power of the device  
+	Signal level: Strength of Wi-Fi signal  
+	Encryption key: Whether Wi-Fi is secured  
+
+
+iwconfig wlan0 | grep -i signal
