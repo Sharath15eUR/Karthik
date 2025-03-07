@@ -1,0 +1,145 @@
+root@karthick-VirtualBoxUbuntu:~# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:14:c9:53 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute enp0s3
+       valid_lft 82480sec preferred_lft 82480sec
+    inet6 fe80::a00:27ff:fe14:c953/64 scope link 
+       valid_lft forever preferred_lft forever
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::a00:27ff:fe14:c953  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:14:c9:53  txqueuelen 1000  (Ethernet)
+        RX packets 9577  bytes 9472211 (9.4 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 4059  bytes 807605 (807.6 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 1283  bytes 125006 (125.0 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1283  bytes 125006 (125.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# ip addr add 192.168.1.100/24 dev eth0
+Cannot find device "eth0"
+root@karthick-VirtualBoxUbuntu:~# tcpdump -i
+tcpdump: option requires an argument -- 'i'
+tcpdump version 4.99.4
+libpcap version 1.10.4 (with TPACKET_V3)
+OpenSSL 3.0.13 30 Jan 2024
+Usage: tcpdump [-AbdDefhHIJKlLnNOpqStuUvxX#] [ -B size ] [ -c count ] [--count]
+		[ -C file_size ] [ -E algo:secret ] [ -F file ] [ -G seconds ]
+		[ -i interface ] [ --immediate-mode ] [ -j tstamptype ]
+		[ -M secret ] [ --number ] [ --print ] [ -Q in|out|inout ]
+		[ -r file ] [ -s snaplen ] [ -T type ] [ --version ]
+		[ -V file ] [ -w file ] [ -W filecount ] [ -y datalinktype ]
+		[ --time-stamp-precision precision ] [ --micro ] [ --nano ]
+		[ -z postrotate-command ] [ -Z user ] [ expression ]
+root@karthick-VirtualBoxUbuntu:~# netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         10.0.2.2        0.0.0.0         UG        0 0          0 enp0s3
+10.0.2.0        0.0.0.0         255.255.255.0   U         0 0          0 enp0s3
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# ip link show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether 08:00:27:14:c9:53 brd ff:ff:ff:ff:ff:ff
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# '
+> ^C
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# ip link add eth0 type dummy
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 up
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# ip a show eth0
+8: eth0: <BROADCAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether 1a:e5:45:56:03:cf brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::18e5:45ff:fe56:3cf/64 scope link 
+       valid_lft forever preferred_lft forever
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# ip addr add 192.168.1.100/2
+4Not enough information: "dev" argument is required.
+root@karthick-VirtualBoxUbuntu:~# ip addr add 192.168.1.100/24 dev eth0
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# netplan apply
+
+** (generate:7303): WARNING **: 12:35:57.600: Permissions for /etc/netplan/01-network-manager-all.yaml are too open. Netplan configuration should NOT be accessible by others.
+
+** (process:7301): WARNING **: 12:35:59.647: Permissions for /etc/netplan/01-network-manager-all.yaml are too open. Netplan configuration should NOT be accessible by others.
+
+** (process:7301): WARNING **: 12:36:01.183: Permissions for /etc/netplan/01-network-manager-all.yaml are too open. Netplan configuration should NOT be accessible by others.
+root@karthick-VirtualBoxUbuntu:~# ^C
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 down
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00:11:22:33::AA:BC
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00:11:22:33::44:AA
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00:11:22:33::44:66
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00:11:22:33::44:55
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00:11:22:33::44::AA
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00:11:22:33::44::55
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00:11::22::33::44::AA
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00::11::22::33::44::AA
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00::11::22::33::44::55
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 address 00::11::22::33::44::55
+"" is invalid lladdr.
+root@karthick-VirtualBoxUbuntu:~# ip link set eth0 up
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# ping -c 5 192.168.1.1
+PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.
+^C
+--- 192.168.1.1 ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3124ms
+
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# ping -c 5 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=58 time=43.3 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=58 time=23.2 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=58 time=23.5 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=58 time=22.9 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=58 time=22.6 ms
+
+--- 8.8.8.8 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4024ms
+rtt min/avg/max/mdev = 22.585/27.093/43.343/8.130 ms
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# arp -a
+? (172.16.16.1) at <incomplete> on enp0s3
+ubuntu-content-cache-2.ps5.canonical.com (185.125.190.97) at <incomplete> on enp0s3
+_gateway (10.0.2.2) at 52:54:00:12:35:02 [ether] on enp0s3
+root@karthick-VirtualBoxUbuntu:~# 
+root@karthick-VirtualBoxUbuntu:~# 
