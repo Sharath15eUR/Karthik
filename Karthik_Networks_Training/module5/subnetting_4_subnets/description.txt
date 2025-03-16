@@ -1,0 +1,114 @@
+This explains the setting up a PT-Empty Router in Cisco Packet Tracer with 4 FastEthernet interfaces, subnetting a 192.168.1.0/24 network into 4 subnets, assigning IP addresses, and verifying connectivity.
+
+Devices Needed 
+
+1 Router (PT-Empty)
+4 Switches
+4 PCs
+
+Power Off the Router and Add Interfaces.
+Drag & Drop Four FastEthernet Modules (PT-HWIC-2FFE).
+Turn On the Router.
+
+enter privileged mode and global configuration mode in the router CLI to configure the interfaces based on the following,
+
+We are dividing 192.168.1.0/24 into 4 subnets:
+
+
+
+Original Network: 192.168.1.0/24  
+- Total IP addresses: 256 (0 to 255)  
+- Usable addresses: 256 - 2 (network & broadcast) = 254
+
+Dividing into 4 subnets:
+- 256 / 4 = 64 addresses per subnet  
+- Each subnet will have 64 addresses (including the network(first one) and broadcast addresses(last one)).
+
+New Subnet Mask:
+- To get 4 subnets, we need to borrow 2 bits from the host portion (/24 + 2 = /26).  
+- /26 in decimal is 255.255.255.192
+
+
+Subnet Breakdown:
+
+1. Subnet 1:
+   - Network Address:	192.168.1.0  
+   - Broadcast Address: 192.168.1.63  
+   - Usable IP Range: 	192.168.1.1 to 192.168.1.62
+
+2. Subnet 2:
+   - Network Address:	192.168.1.64  
+   - Broadcast Address:	192.168.1.127  
+   - Usable IP Range:	192.168.1.65 to 192.168.1.126
+
+3. Subnet 3:  
+   - Network Address:	192.168.1.128  
+   - Broadcast Address:	192.168.1.191  
+   - Usable IP Range:	192.168.1.129 to 192.168.1.190
+
+4. Subnet 4:  
+   - Network Address:	192.168.1.192  
+   - Broadcast Address:	192.168.1.255  
+   - Usable IP Range:	192.168.1.193 to 192.168.1.254
+
+
+Subnet	Network	Address SubnetMask		Usable IP Range			Router Interface IP
+
+ 1  	192.168.1.0     255.255.255.192 	192.168.1.1 - 192.168.1.62  	192.168.1.1  
+ 2  	192.168.1.64    255.255.255.192 	192.168.1.65 - 192.168.1.126 	192.168.1.65  
+ 3  	192.168.1.128   255.255.255.192 	192.168.1.129 - 192.168.1.190 	192.168.1.129 
+ 4  	192.168.1.192   255.255.255.192 	192.168.1.193 - 192.168.1.254 	192.168.1.193 
+
+Assigning IPs to Router Interfaces
+
+example :
+
+for subnet 1
+
+interface FastEthernet6/0
+ip address 192.168.1.1 255.255.255.192
+no shutdown
+exit
+
+further do similarly for other subnets.
+
+
+save the configuration and verify the interface info and status.
+
+connection diagram 
+
+	     |→	FastEthernet6/0 → Switch0 → PC0
+	     |→	FastEthernet7/0 → Switch1 → PC1
+Router-PT-----
+	     |→	FastEthernet8/0 → Switch2 → PC2
+	     |→	FastEthernet9/0 → Switch3 → PC3
+
+
+PC	IP		subnet mask		default gateway
+
+0	192.168.1.2	255.255.255.192		192.168.1.1
+1	192.168.1.66	255.255.255.192		192.168.1.65
+2	192.168.1.130	255.255.255.192		192.168.1.129
+3	192.168.1.194	255.255.255.192		192.168.1.193
+
+
+Verify Connectivity
+
+Check Connectivity using PING
+1. Go to PC0 → Open Command Prompt → Run:
+
+   ping 192.168.1.66   # Ping PC1
+   ping 192.168.1.130  # Ping PC2
+   ping 192.168.1.194  # Ping PC3
+  
+   yo people here, 
+   ping is successful, network is working!
+
+2. Check Routing Table on Router CLI:
+
+   show ip route
+   
+   seen 4 directly connected networks.
+
+
+

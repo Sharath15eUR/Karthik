@@ -1,0 +1,53 @@
+ARP Spoofing is a hacking technique where an attacker tricks a device into believing they are another trusted device by sending fake ARP messages. This allows them to intercept, modify, or block network traffic.
+
+attacker pc gets in itself as a man-in-the-middle to perform attack.
+
+Setup the Network
+-----------------
+
+PC0		192.168.1.2/24  000C.29AA.BB01
+PC1		192.168.1.3/24  000C.29AA.BB02
+attacker pc	192.168.1.10/24 000C.29AA.BB03
+router(gateway)	192.168.1.1/24
+
+
+Connect two victim PCs, one attacker PC, a router (gateway), and a switch using Ethernet cables.
+Assign IP addresses manually to each device.
+
+Check Normal ARP Communication
+------------------------------
+
+Use the arp -a command on a victim PC to view its ARP table.
+
+Send a ping to another PC to confirm normal network communication.
+
+Device		IP Address	MAC Address	ARP Table Entry (Gateway)
+Router(Gateway)	192.168.1.1	(Real MAC)	192.168.1.2 → 000C.29AA.BB01
+PC0		192.168.1.2	000C.29AA.BB01	192.168.1.1 → (Router's MAC)
+PC1		192.168.1.3	000C.29AA.BB02	192.168.1.1 → (Router's MAC)
+Attacker PC	192.168.1.10	000C.29AA.BB03	normal state
+
+
+Perform ARP Spoofing
+--------------------
+
+On the attacker PC, modify the ARP cache of victim PCs:
+
+Trick PC1 into believing the attacker is the router.
+Trick PC2 into believing the attacker is PC1.
+
+This makes all traffic between the victims go through the attacker.
+
+Verify the Attack
+-----------------
+
+Use the arp -a command again on the victims to check if their ARP entries have changed.
+Use Wireshark to capture ARP packets and confirm fake ARP replies.
+
+
+Device		IP Address	MAC Address	ARP Table Entry (Gateway)
+Router(Gateway)	192.168.1.1	(Real MAC)	192.168.1.2 → 000C.29AA.BB03 (Attacker)
+PC0		192.168.1.2	000C.29AA.BB01	192.168.1.1 → 000C.29AA.BB03 (Attacker)
+PC1		192.168.1.3	000C.29AA.BB02	192.168.1.1 → 000C.29AA.BB03 (Attacker)
+Attacker PC	192.168.1.10	000C.29AA.BB03	Now controls traffic(spoof)
+

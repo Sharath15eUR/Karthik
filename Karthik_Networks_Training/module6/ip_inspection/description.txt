@@ -1,0 +1,16 @@
+Identifying IP Classes and Their Type (Private/Public)
+
+1.  192.168.10.5
+
+   - Class C (First octet: 192, falls in the range 192-223)  
+   - Private (192.168.x.x is reserved for private networks)
+
+2.  172.20.15.1
+ 
+   - Class B (First octet: 172, falls in the range 128-191)  
+   - Private (172.16.0.0 - 172.31.255.255 is reserved for private networks)
+
+3.  8.8.8.8
+   - Class A (First octet: 8, falls in the range 1-126)  
+   - Public (Not in reserved private ranges and used as a public DNS by Google)
+

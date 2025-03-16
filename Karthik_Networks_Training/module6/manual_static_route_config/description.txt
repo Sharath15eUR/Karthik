@@ -1,0 +1,87 @@
+Static Routing
+
+1. Network Topology:
+						  
+   [PC1] ---- Switch1 ---- [Router1] ----  CROSS-OVER ---- [Router2] ---- Switch2 ---- [PC2]
+											
+2. Devices Required:
+   - PCs: 2 (PC1, PC2)
+   - Routers: 2 (Router1, Router2)
+   - Switches: 2 (Switch1, Switch2)
+
+3. IP Addressing Plan:
+   - PC1: 192.168.1.100 / 255.255.255.0 (Gateway: 192.168.1.1)
+   - Router1 Fa0/0: 192.168.1.1 / 255.255.255.0
+   - Router1 Fa0/1: 10.0.0.1 / 255.255.255.0
+   - Router2 Fa0/0: 10.0.0.2 / 255.255.255.0
+   - Router2 Fa0/1: 192.168.2.1 / 255.255.255.0
+   - PC2: 192.168.2.100 / 255.255.255.0 (Gateway: 192.168.2.1)
+
+4. Router1 Configuration:
+
+   enable
+
+   configure terminal
+
+   interface FastEthernet0/0
+   ip address 192.168.1.1 255.255.255.0
+   no shutdown
+   exit
+
+   interface FastEthernet0/1
+   ip address 10.0.0.1 255.255.255.0
+   no shutdown
+   exit
+
+   ip route 192.168.2.0 255.255.255.0 10.0.0.2
+
+   write memory
+
+5. Router2 Configuration:
+
+   enable
+
+   configure terminal
+
+   interface FastEthernet0/0
+   ip address 10.0.0.2 255.255.255.0
+   no shutdown
+   exit
+
+   interface FastEthernet0/1
+   ip address 192.168.2.1 255.255.255.0
+   no shutdown
+   exit
+
+   ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+   write memory
+
+6. Configuring PCs:
+
+   - PC1:
+
+     IP: 192.168.1.100
+     Subnet Mask: 255.255.255.0
+     Default Gateway: 192.168.1.1
+
+   - PC2:
+
+     IP: 192.168.2.100
+     Subnet Mask: 255.255.255.0
+     Default Gateway: 192.168.2.1
+
+7. Verification:
+
+   - Ping PC2 from PC1: 
+
+     ping 192.168.2.100
+
+   - Traceroute:
+
+     tracert 192.168.2.100 
+     
+   - Show routing table:
+
+     Router1# show ip route
+     Router2# show ip route

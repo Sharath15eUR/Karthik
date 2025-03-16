@@ -1,0 +1,97 @@
+Role of IP and MAC Address:
+
+Sender’s MAC & IP (in Request): identifies who is making the request.
+Target’s IP (in Request): unknown IP for which the MAC is requested.
+Sender’s MAC & IP (in Reply): identifies the owner of the requested IP.
+Target’s MAC & IP (in Reply): addressed to the requester, updating the ARP cache.
+
+Just it is enough to select the appropriate interface in wireshark and apply "arp" filter.
+Then start capturing the packets. Furthermore stop the capturing and then analyze the captured packets.
+
+The release and renew commands are used to manage Dynamic Host Configuration Protocol (DHCP) leases. These commands help devices obtain or refresh their IP addresses from a DHCP server.
+
+1. ipconfig /release :
+
+	Disconnects the device from the network by releasing its assigned IP address back to the DHCP server.
+	Clears the existing DHCP lease and removes IP settings.
+	
+	Use Cases:
+
+	When troubleshooting IP conflicts.
+	If switching between different networks.
+	Before assigning a static IP to a device.
+
+2. ipconfig /renew :
+
+	Requests a new IP address from the DHCP server.
+	If the DHCP lease is still valid, it may reassign the same IP.
+	
+	Use Cases:
+
+	When the network connection is lost or unstable.
+	To get a new IP address from the DHCP server.
+	After using the release command.
+
+
+Thereby a new traffic is being generated from intial stage to analyse the arp packets in detail.
+
+Here as if,
+
+my laptop is being connected to a wireless WiFi connection,
+
+1. ARP Request (Example: Frame 13484)
+
+Info Column: "Who has 192.168.1.26? Tell 192.168.1.1"
+
+Sender (Source MAC & IP):
+
+MAC Address: a8:74:84:cd:ba:fa (Sender's MAC)
+IP Address: 192.168.1.1 (Sender's IP)
+Role: This device is sending an ARP request to find out the MAC address associated with IP 192.168.1.26.
+
+Target (Destination MAC & IP):
+
+MAC Address: ff:ff:ff:ff:ff:ff (Broadcast)
+IP Address: 192.168.1.26 (Target IP)
+Role: The target device (192.168.1.26) is expected to reply with its MAC address.
+
+
+2. ARP Reply (Example: "192.168.1.26 is at f8:54:f6:91:c1:7f")
+
+Sender (Source MAC & IP):
+
+MAC Address: f8:54:f6:91:c1:7f (Responder's MAC)
+IP Address: 192.168.1.26 (Responder's IP)
+Role: This device is responding to the ARP request by providing its MAC address.
+
+Target (Destination MAC & IP):
+
+MAC Address: a8:74:84:cd:ba:fa (Requester’s MAC)
+IP Address: 192.168.1.1 (Requester’s IP)
+Role: This reply is sent directly to the device that originally asked for the MAC address of 192.168.1.26.
+
+
+
+Importance of ARP in Packet Forwarding
+
+-MAC Address Resolution
+
+	ARP is crucial for mapping an IP address to a MAC address.
+	Without ARP, devices wouldn’t know where to send packets in a local network.
+
+-Packet Forwarding within a Subnet
+
+	When sending data to another device in the same subnet, the sender uses ARP to find the recipient’s MAC address.
+
+-Gateway Communication
+
+	If the destination is outside the subnet, ARP is used to find the MAC address of the default gateway (router).
+
+-Efficient Network Communication
+
+	ARP replies are cached to reduce redundant requests and improve performance.
+
+-Security Considerations
+
+	ARP Spoofing attacks can manipulate ARP tables, leading to Man-in-the-Middle (MITM) attacks.
+	Using Dynamic ARP Inspection (DAI) can help mitigate ARP-related attacks.

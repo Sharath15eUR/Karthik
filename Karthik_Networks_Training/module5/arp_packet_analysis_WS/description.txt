@@ -1,0 +1,44 @@
+Role of IP and MAC Address:
+
+Sender’s MAC & IP (in Request): identifies who is making the request.
+Target’s IP (in Request): unknown IP for which the MAC is requested.
+Sender’s MAC & IP (in Reply): identifies the owner of the requested IP.
+Target’s MAC & IP (in Reply): addressed to the requester, updating the ARP cache.
+
+Just it is enough to select the appropriate interface in wireshark and apply "arp" filter.
+Then start capturing the packets. Furthermore stop the capturing and then analyze the captured packets.
+
+Here as if,
+
+my laptop is being connected to a wireless WiFi connection,
+
+1. ARP Request (Example: Frame 13484)
+
+Info Column: "Who has 192.168.1.26? Tell 192.168.1.1"
+
+Sender (Source MAC & IP):
+
+MAC Address: a8:74:84:cd:ba:fa (Sender's MAC)
+IP Address: 192.168.1.1 (Sender's IP)
+Role: This device is sending an ARP request to find out the MAC address associated with IP 192.168.1.26.
+
+Target (Destination MAC & IP):
+
+MAC Address: ff:ff:ff:ff:ff:ff (Broadcast)
+IP Address: 192.168.1.26 (Target IP)
+Role: The target device (192.168.1.26) is expected to reply with its MAC address.
+
+
+2. ARP Reply (Example: "192.168.1.26 is at f8:54:f6:91:c1:7f")
+
+Sender (Source MAC & IP):
+
+MAC Address: f8:54:f6:91:c1:7f (Responder's MAC)
+IP Address: 192.168.1.26 (Responder's IP)
+Role: This device is responding to the ARP request by providing its MAC address.
+
+Target (Destination MAC & IP):
+
+MAC Address: a8:74:84:cd:ba:fa (Requester’s MAC)
+IP Address: 192.168.1.1 (Requester’s IP)
+Role: This reply is sent directly to the device that originally asked for the MAC address of 192.168.1.26.

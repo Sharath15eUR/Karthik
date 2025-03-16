@@ -1,0 +1,39 @@
+Analysis for each IP address:
+
+
+ 10.1.1.1
+
+ Class:			Class A  
+ Default Subnet Mask:	255.0.0.0  
+ Class A IP Range:	1.0.0.0 to 126.255.255.255  
+
+ 127.0.0.0/8 range is reserved for loopback.
+
+
+
+ 172.16.5.10
+
+ Class:			Class B
+ Default Subnet Mask:	255.255.0.0 
+ Class B IP Range:	128.0.0.0 to 191.255.255.255
+ 
+ The range 172.16.0.0 to 172.31.255.255 is reserved for private networks.
+
+
+
+ 192.168.1.5
+
+ Class:			Class C
+ Default Subnet Mask:	255.255.255.0 
+ Class C IP Range:	192.0.0.0 to 223.255.255.255 
+
+ The range 192.168.0.0 to 192.168.255.255 is reserved for private networks.
+
+
+
+This classification is based on the first octet of each IP address:
+
+Class A:	1-126 
+Class B:	128-191 
+Class C:	192–223
+

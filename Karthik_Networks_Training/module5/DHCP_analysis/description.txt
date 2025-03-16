@@ -1,0 +1,37 @@
+DHCP DORA Process Captured in Wireshark
+========================================
+
+DHCP - Dynamic Host Configuration Protocol
+
+The DORA process is used by a device (client) to get an IP address from a DHCP Server.
+
+ Message		Source IP → Destination IP	Function
+
+DHCP Discover			0.0.0.0 → 255.255.255.255			Client asks for an IP
+DHCP Offer		DHCP Server → Client         	Server offers an IP
+DHCP Request   			Client → DHCP Server         		Client requests the offered IP
+DHCP Acknowledge 		DHCP Server → Client    			Server confirms & assigns IP
+
+
+Explanation of Wireshark Capture:
+
+Step 1: DHCP Discover
+
+- Frame 155 → Source MAC: f8:54:f6:91:c1:7f (Client)
+- The client device (your PC) broadcasts a request (0.0.0.0 → 255.255.255.255) to find a DHCP server.
+
+Step 2: DHCP Offer
+
+- Frame 168 → Source IP: 192.168.43.1 (DHCP Server)
+- The DHCP server responds with an IP Offer (e.g., 192.168.43.152).
+
+Step 3: DHCP Request
+
+- Frame 170 & 180 → Source IP: 192.168.43.152 (Client)
+- The client requests the same offered IP (192.168.43.152) from the server.
+
+Step 4: DHCP Acknowledge
+
+- Frame 225 → Source IP: 192.168.43.1 (DHCP Server)
+- The server confirms the assignment, and the client can now use the IP.
+

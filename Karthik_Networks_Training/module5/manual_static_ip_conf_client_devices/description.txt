@@ -1,0 +1,18 @@
+Steps:
+
+Assign IPs manually (e.g., 192.168.1.10) on devices.
+Set the subnet mask (255.255.255.0) and default gateway (e.g., 192.168.1.1).
+Verify using ping <another device IP>.
+
+Analysis:
+
+Successful pings confirm correct IP configuration.
+If no connectivity, check subnet mask and gateway settings.
+
+Here,
+
+Device		connection-mode		Ip addresss(static)
+
+PC		wired-LAN		192.168.1.10/24
+Laptop		wired-LAN		192.168.1.20/24
+Smartphone	wireless		192.168.1.30/24
