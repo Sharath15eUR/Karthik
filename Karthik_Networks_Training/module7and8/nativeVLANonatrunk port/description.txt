@@ -1,0 +1,42 @@
+Network Setup and Device Information for VLAN and Trunk Port Configuration
+
+Devices Used: 
+
+- 1 Router   
+- 2 Switches   
+- 4 PCs (PC0, PC1, PC2, PC3)  
+
+VLAN Configuration: 
+
+- VLAN 10 (DATA)  
+- VLAN 20 (VOICE)  
+
+Connections:
+
+- Router0 is connected to both switches via trunk ports.  
+- Switch0 and Switch1 are connected to each other using a trunk link.  
+- PCs are connected to different VLANs on Switch0 and Switch1.  
+
+VLAN and Trunk Port Configuration:
+ 
+- VLAN 10 (DATA) and 20 (VOICE) are created on both switches.  
+- Trunk ports are configured to allow VLAN 10 and VLAN 20 traffic.
+  
+- Switch0 and Switch1 both have "show vlan brief" and "show interfaces trunk" commands executed, confirming: 
+ 
+  - VLANs exist and are active.  
+  - Trunk ports are correctly configured using **802.1q encapsulation**.  
+  - The VLANs allowed on trunk include **10 and 20**.  
+
+
+Verification of Network Connectivity and Issues Observed:
+  
+Ping Test Results from PC0:
+
+- Ping to 192.168.20.2 → Successful (with minor packet loss, 25)  
+- Ping to 192.168.20.3 → Failed (100% packet loss) 
+
+
+- VLANs are set up correctly and trunking is active.  
+- Router has inter-VLAN routing enabled.  
+- Ping from PC0 to a VLAN 20 device partially works but fails to another device, suggesting VLAN 20 communication issues.

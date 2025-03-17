@@ -1,0 +1,45 @@
+Static NAT (Network Address Translation) 
+
+
+Static NAT Configuration on ISP and NAT Router:
+
+- Network Setup:
+  
+  - A Switch connects local PCs to a NAT Router.  
+  - The NAT Router connects to an ISP Router, which has a WAN connection.  
+
+- Router Configuration:
+ 
+  - The NAT Router has two interfaces:  
+
+    - FastEthernet0/0: Connected to the LAN (192.168.1.0/24).  
+    - FastEthernet1/0: Connected to the ISP (203.0.113.0/24).  
+
+  - Static NAT is configured using:  
+
+    - A fixed one-to-one mapping between a private IP (e.g., 192.168.1.100) and a public IP (e.g., 203.0.113.100).  
+    - This ensures that a specific internal host always has the same external IP.  
+
+- Verification Commands:
+  
+  - show ip nat translations: Displays the current static NAT mapping.  
+  - show ip nat statistics: Checks NAT configuration status.  
+
+
+Static NAT Testing (Ping Results):
+  
+- Ping from PC0:
+  
+  - Successfully pings 192.168.1.1 (local gateway).  
+  - Pings 203.0.113.2 (ISP Router) with partial success (50% loss).  
+  - Successfully pings 8.8.8.8 (Google DNS), confirming external internet access.  
+
+- NAT Router Verification:  
+
+  - The "show ip nat translations" command shows a one-to-one mapping between 192.168.1.100 (inside local) and 203.0.113.100 (inside global).  
+  - ICMP (ping) packets from the internal network are being translated to the assigned static public IP.  
+
+  
+  - Static NAT is successfully working**, ensuring a specific private IP always uses the same public IP for internet access.  
+   
+

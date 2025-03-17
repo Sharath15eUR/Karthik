@@ -1,0 +1,59 @@
+Network Setup and Device Information for a EXTENDED ACL set up
+
+- Devices Used:
+  - 1 Router 
+  - 1 Switch 
+  - 2 PCs (PC0[192.168.1.10], PC1[192.168.1.20]) PC1 is blocked based on the ACL
+  - 1 Server 
+
+- Connections:
+  - Router0 is connected to Switch0.
+  - PC0, PC1, and Server0 are connected to Switch0.
+
+Extended Access Control List (ACL) Configuration:
+
+- The router is configured with multiple Extended ACLs (100, 101) to control traffic.
+
+- ACL Rules:
+
+  - ACL 100:
+
+    1. Deny TCP traffic from host 192.168.1.20 to any destination on port 80 (HTTP).
+    2. Deny TCP traffic from host 192.168.1.20 to any destination on port 443 (HTTPS).
+    3. Permit all other traffic.
+
+  - ACL 101:
+
+    1. Deny TCP traffic from host 192.168.1.10 to host 192.168.2.100 on port 80 (HTTP).
+    2. Deny TCP traffic from host 192.168.1.10 to host 192.168.2.100 on port 21 (FTP).
+    3. Permit all other traffic.
+
+- ACL Applied On:
+
+  - ACL 100 is assigned to an interface for filtering specific traffic.
+  - ACL 101 is applied to control communication between PC0 and Server0.
+
+Verification of ACL & Network Connectivity:
+
+- ACL Verification Commands Used:
+
+  - show access-lists
+  - show running-config | include access-list
+
+- The router correctly displays the ACL configuration with match counts for each rule.
+
+Ping and Telnet Tests:
+
+- Ping Test from PC1 to 192.168.2.100 (Server0):
+
+  - Ping failed with "Destination host unreachable," indicating traffic is blocked.
+  
+- Telnet and FTP Tests:
+
+  - Attempts from PC0 and PC1 to 192.168.2.100 on ports 80 and 21.
+  - Connection attempts timed out, confirming that ACL 101 blocks traffic as intended.
+
+- ICMP (ping) is blocked for 192.168.2.100.
+- TCP traffic on port 80 (HTTP) and port 21 (FTP) is blocked between 192.168.1.10 and 192.168.2.100.
+- Other traffic is permitted as expected.
+

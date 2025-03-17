@@ -1,0 +1,55 @@
+Network Setup and Device Information for a STANDARD ACL set up
+
+- Devices Used:
+
+  - 1 Router 
+  - 1 Switch 
+  - 2 PCs (PC0[192.168.1.10], PC1[192.168.1.20])
+  - 1 Server 
+
+- Connections:
+
+  - Router0 is connected to Switch0.
+  - PC0, PC1, and Server0 are connected to Switch0.
+
+Standard Access Control List (ACL) Configuration:
+
+- The router is configured with Standard ACL 10 to control traffic.
+
+- ACL Rules:
+
+  - ACL 10:
+
+    1. Permit traffic from 192.168.1.0/24.
+    2. Deny all other traffic.
+
+- ACL Applied On:
+
+  - ACL 10 is assigned to an interface to filter traffic based on source IP.
+
+Verification of ACL & Network Connectivity:
+
+- ACL Verification Commands Used:
+  - show access-lists
+  - show running-config | include access-list
+
+- The router correctly displays the ACL configuration with match counts for each rule.
+
+Ping and Telnet Tests:
+
+- Ping Test from PC0 and PC1 to 192.168.1.100:
+
+  - Ping successful, indicating permitted traffic.
+
+- Ping Test from PC0 and PC1 to 192.168.2.10:
+
+  - Ping failed with "Destination host unreachable," indicating traffic is blocked.
+
+- Telnet Tests:
+
+  - Attempts to connect to 192.168.2.100 on ports 80 and 443 timed out, confirming traffic is blocked as intended.
+
+- ICMP (ping) is blocked for 192.168.2.10.
+- TCP traffic on ports 80 (HTTP) and 443 (HTTPS) is blocked from 192.168.1.20.
+- Other traffic is permitted as expected.
+

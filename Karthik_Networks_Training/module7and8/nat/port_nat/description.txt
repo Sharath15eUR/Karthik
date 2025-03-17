@@ -1,0 +1,40 @@
+PAT (Port Address Translation) 
+
+PAT Configuration on ISP and NAT Router:
+
+- Network Setup:
+
+  - A Switch connects local PCs (PC0 and PC1) to a NAT Router.
+  - The NAT Router connects to an ISP Router, which has a WAN connection.
+
+- Router Configuration:
+
+  - The NAT Router has two interfaces:
+
+    - FastEthernet0/0: Connected to the LAN (192.168.1.0/24).
+    - FastEthernet1/0: Connected to the ISP (203.0.113.0/24).
+
+  - PAT is configured using:
+
+    - Access Control List (ACL) to permit internal network translation.
+    - Overloaded NAT rule to translate multiple private IPs into a single public IP with different port numbers.
+    - Default route for forwarding traffic to the ISP.
+
+- Verification Commands:
+
+  - show ip nat translations: Displays active PAT translations.
+  - show ip nat statistics: Checks PAT configuration status.
+
+PAT Testing (Ping Results):
+
+- Ping from PC0 and PC1:
+
+  - PC0:
+    - Successfully pings 192.168.1.1 (local gateway).
+    - Pings 203.0.113.2 (ISP Router) with partial success (50% loss).
+    - Successfully pings 8.8.8.8 (Google DNS).
+
+  - PC1:
+    - Successfully pings 8.8.8.8 (Google DNS).
+
+  - PAT is successfully working, as multiple internal private IPs (192.168.1.x) are translated into a single public IP (203.0.113.100) using different port numbers.

@@ -1,0 +1,31 @@
+Management VLAN Configuration and Remote Access Verification
+
+1. Network Setup and Device Information:
+
+- Devices Used:
+
+  - 1 Router   
+  - 1 Switch   
+  - 1 PC 
+
+- Connections:  
+
+  - Router5 is connected to Switch0.  
+  - PC0 is connected to Switch0.  
+
+2. VLAN and IP Configuration:
+
+- The switch has VLAN 99 configured as the "management VLAN".  
+- An IP address 192.168.1.100 is assigned to VLAN 99 for remote access.  
+- The "show vlan brief" command confirms VLAN 99 exists but is not assigned to any active ports.  
+
+3. Remote Access Testing (Telnet Login):
+
+- PC0 attempted to ping 192.168.1.100, but all requests timed out, indicating ICMP might be blocked or the VLAN configuration needs verification.  
+- A Telnet connection to 192.168.1.100 was successful.  
+- After initiating the Telnet session, the switch prompted for a password, confirming that remote access is enabled.  
+- The user successfully logged in and gained access to the switch command-line interface.  
+
+- The management VLAN IP is reachable via Telnet but not through ICMP (ping), possibly due to security settings.  
+- The switch's VTY lines are configured to allow Telnet access.  
+- The network setup allows remote management of the switch from PC0.

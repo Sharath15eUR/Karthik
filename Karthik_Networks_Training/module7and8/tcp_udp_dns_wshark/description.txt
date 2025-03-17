@@ -1,0 +1,108 @@
+
+1. dns_packets.png
+  
+Description:
+ 
+- DNS is used to resolve domain names (e.g., `google.com`) into IP addresses.  
+
+- The packets in this image might include:  
+  - DNS Queries (requests sent to a DNS server to resolve a hostname).  
+  - DNS Responses (replies from the DNS server with the requested IP address).  
+
+Key Details to Look For:  
+- Source & Destination IPs: The client sending the request and the DNS server responding.  
+- Query Type: Whether it's an `A` record (IPv4), `AAAA` record (IPv6), or another type.  
+- Response Code: Indicates success (`NOERROR`), failure (`NXDOMAIN` for non-existent domains), etc.  
+
+
+2. dns_packets_for_msn.png
+
+Description:  
+
+- Similar to the previous DNS packet capture, this one might show DNS lookups for MSN-related domains.  
+
+Key Details to Look For:
+  
+- Queried Domains: Look for `msn.com`, `outlook.com`, or Microsoft-related services.  
+- TTL (Time-to-Live): The caching duration for the DNS response.  
+- Response IPs: These will tell you which IP addresses are assigned to the queried domain.  
+
+
+3. tcp_packets.png
+ 
+Description:  
+
+- TCP is a connection-oriented protocol used for reliable data transmission (e.g., web browsing, file transfers).  
+
+Key Details to Look For:
+ 
+- SYN, ACK, FIN Flags:
+  
+  - A TCP handshake involves three steps: `SYN → SYN-ACK → ACK`.  
+  - A connection teardown involves `FIN` or `RST` flags.  
+
+- Source & Destination Ports:
+  
+  - Common ports: `80` (HTTP), `443` (HTTPS), `21` (FTP), `22` (SSH). 
+ 
+- Sequence & Acknowledgment Numbers: Track packet flow and retransmissions.  
+
+
+4. tcp_packets_response.png
+  
+Description:
+  
+- If the initial image showed connection requests, this one might contain:  
+  - Data packets in an established connection.  
+  - TCP retransmissions or duplicate ACKs (if packet loss occurred).  
+
+Key Details to Look For: 
+ 
+- Retransmissions or Delays: Indicates network congestion or packet loss.  
+- Window Size: Affects how much data can be sent before waiting for an acknowledgment.  
+- RST (Reset) Packets: Shows when a connection was forcibly closed.  
+
+
+5. udp_packet_query.png
+  
+Description:
+
+- UDP is a connectionless protocol used for fast, low-latency communications (e.g., DNS, VoIP, streaming).  
+
+Key Details to Look For: 
+
+- DNS Queries: If this is a DNS request, it might be sent over UDP (port `53`).  
+- Source & Destination Ports: UDP services use different ports (`53` for DNS, `123` for NTP, etc.).  
+- No Acknowledgment: Unlike TCP, UDP does not have a handshake or retransmissions.  
+
+
+6. udp_packets.png
+
+Description:
+  
+- This contains general UDP packets, which might include DNS, DHCP, or streaming data.  
+
+Key Details to Look For:
+
+- Packet Size & Count: Since UDP is lightweight, look for small, frequent packets.  
+- Dropped Packets: UDP does not guarantee delivery, so some packets might be missing.  
+
+
+7. wifi_connection_tcp_info.png
+ 
+Description:
+  
+- This contains TCP packet information related to a Wi-Fi connection. 
+
+- It might include:  
+
+  - Handshake process for establishing a connection.  
+  - Data transfer between a client and a server.  
+  - TCP retransmissions if the connection is weak.  
+
+Key Details to Look For: 
+
+- Signal Strength Issues: If retransmissions are frequent, Wi-Fi interference might be a problem.  
+- IP Address Information: Look for private (`192.168.x.x`) vs. public IPs.  
+- Congestion Control: TCP adapts to network conditions using slow start, congestion avoidance, etc.  
+

@@ -1,0 +1,50 @@
+Network Setup and Device Information for a BASIC ACL set up:
+
+- Devices Used:
+  - 1 Router 
+  - 1 Switch 
+  - 2 PCs (PC0[192.168.1.10], PC1[192.168.1.20]) PC1 is blocked based on the ACL
+  - 1 Server
+
+- Connections:
+  - Router0 is connected to Switch0.
+  - PC0, PC1, and Server0 are connected to Switch0.
+
+Access Control List (ACL) Configuration:
+
+- The router is configured with an Extended ACL (Number: 100) to control traffic.
+
+- ACL Rules:
+
+  1. Deny TCP traffic from 192.168.1.20 to any destination on port 80 (HTTP).
+  2. Deny TCP traffic from 192.168.1.20 to any destination on port 443 (HTTPS).
+  3. Permit all other traffic.
+
+- ACL Applied On:
+
+  - The ACL is assigned to the FastEthernet 0/0 interface.
+
+Verification of ACL & Network Connectivity:
+
+- ACL Verification Commands Used:
+
+  - show access-lists
+  - show running-config | include access-list
+
+- The router correctly displays the ACL configuration.
+
+Ping and Telnet Tests:
+
+- Ping Test from PC0 to 192.168.1.100 (Server0):
+
+  - Ping was successful, indicating ICMP traffic is allowed.
+  
+- Telnet Test to Server on Port 80 (HTTP):
+
+  - Attempted connections from PC0 and PC1 to 192.168.1.100 on port 80.
+  - Connection opens but is closed by the remote host, suggesting that the server or ACL settings affect HTTP traffic.
+
+- ICMP (ping) is allowed.
+- TCP traffic on port 80 and 443 is blocked for 192.168.1.20.
+- Other traffic is unaffected.
+

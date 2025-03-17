@@ -1,0 +1,23 @@
+VoIP and Data VLAN Configuration
+
+-VLAN 10 (Data VLAN) is assigned to PC1, ensuring that regular data traffic remains isolated from voice traffic.
+-VLAN 20 (Voice VLAN) is configured for the VoIP phone (Home VoIP2), prioritizing voice packets for better call quality.
+-The switch port connecting the VoIP phone is configured as a multi-VLAN access port. 
+
+-It allows:
+	Data traffic (VLAN 10) from the PC connected through the phone’s PC port.
+	Voice traffic (VLAN 20) from the VoIP phone itself.
+
+By configuring the switch port to support both VLANs, the VoIP phone can send tagged voice traffic (802.1Q), while data traffic remains untagged, ensuring proper communication without interference.
+
+In this setup, VLANs are configured to segment network traffic efficiently. 
+
+- VLAN 10 (Data VLAN): Assigned to PC1, ensuring that standard network traffic is isolated.  
+- VLAN 20 (Voice VLAN): Dedicated to the VoIP phone (Home VoIP2) for prioritizing voice traffic. 
+ 
+- The switch port connected to the VoIP phone is set up to allow both:  
+
+  - Untagged data traffic (VLAN 10)** from the PC connected through the phone.  
+  - Tagged voice traffic (VLAN 20)** for proper Quality of Service (QoS).  
+
+This configuration ensures that VoIP calls receive priority while keeping data traffic isolated, preventing congestion and improving performance.

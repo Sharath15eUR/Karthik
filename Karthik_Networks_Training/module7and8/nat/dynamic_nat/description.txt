@@ -1,0 +1,44 @@
+Dynamic NAT (Network Address Translation)
+
+Dynamic NAT Configuration on ISP and NAT Router:
+
+- Network Setup:
+
+  - A Switch connects local PCs to a NAT Router.
+  - The NAT Router connects to an ISP Router, which has a WAN connection.
+
+- Router Configuration:
+
+  - The NAT Router has two interfaces:
+
+    - FastEthernet0/0: Connected to the LAN (192.168.1.0/24).
+    - FastEthernet1/0: Connected to the ISP (203.0.113.0/24).
+
+  - Dynamic NAT is configured using:
+
+    - IP NAT pool ("MYPOOL") with a range of public IPs (203.0.113.100-203.0.113.110).
+    - Access list (ACL) permitting internal network translation.
+    - NAT rules associating the ACL with the public IP pool.
+
+- Verification Commands:
+
+  - show ip nat translations: Displays the current NAT mappings.
+  - show ip nat statistics: Checks NAT configuration status.
+
+
+Dynamic NAT Testing (Ping Results):
+
+- Ping from PC0 and PC1:
+
+  - PC0:
+
+    - Successfully pings 192.168.1.1 (local gateway).
+    - Pings 203.0.113.2 (ISP Router) with partial success (50% loss).
+    - Successfully pings 8.8.8.8 (Google DNS).
+
+  - PC1:
+
+    - Pings 8.8.8.8, but one packet is lost, possibly due to network congestion or NAT translation delay.
+
+  - Dynamic NAT is successfully working, as internal addresses (192.168.1.x) are translated to public IPs from the NAT pool.
+  
