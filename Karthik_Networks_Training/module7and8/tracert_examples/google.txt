@@ -1,0 +1,96 @@
+Microsoft Windows [Version 10.0.26100.3476]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\karth>tracert www.google.com
+
+Tracing route to www.google.com [142.250.182.196]
+over a maximum of 30 hops:
+
+  1     *        *        *     Request timed out.
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7   163 ms    28 ms    38 ms  172.26.100.18
+  8   172 ms    29 ms    36 ms  192.168.83.26
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11     *        *        *     Request timed out.
+ 12   215 ms    38 ms    48 ms  216.239.43.133
+ 13   169 ms    39 ms    48 ms  142.250.208.152
+ 14   189 ms   130 ms   104 ms  142.250.56.38
+ 15   216 ms   108 ms   165 ms  142.250.226.135
+ 16   415 ms   134 ms   122 ms  142.250.214.101
+ 17    91 ms    93 ms    77 ms  bom07s28-in-f4.1e100.net [142.250.182.196]
+
+Trace complete.
+
+C:\Users\karth>tracert -d www.google.com
+
+Tracing route to www.google.com [142.250.193.132]
+over a maximum of 30 hops:
+
+  1     *        *        *     Request timed out.
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7    51 ms    46 ms    28 ms  172.26.100.19
+  8    35 ms    35 ms    52 ms  192.168.83.26
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11     *        *        *     Request timed out.
+ 12    71 ms    37 ms    55 ms  142.251.71.187
+ 13   257 ms    42 ms    52 ms  142.251.55.225
+ 14   222 ms    45 ms    61 ms  142.250.193.132
+
+Trace complete.
+
+C:\Users\karth>tracert -R www.google.com
+Unable to resolve target system name www.google.com.
+
+C:\Users\karth>tracert -f 64 www.google.com
+-f is not a valid command option.
+
+Usage: tracert [-d] [-h maximum_hops] [-j host-list] [-w timeout]
+               [-R] [-S srcaddr] [-4] [-6] target_name
+
+Options:
+    -d                 Do not resolve addresses to hostnames.
+    -h maximum_hops    Maximum number of hops to search for target.
+    -j host-list       Loose source route along host-list (IPv4-only).
+    -w timeout         Wait timeout milliseconds for each reply.
+    -R                 Trace round-trip path (IPv6-only).
+    -S srcaddr         Source address to use (IPv6-only).
+    -4                 Force using IPv4.
+    -6                 Force using IPv6.
+
+C:\Users\karth>tracert -6 www.google.com
+Unable to resolve target system name www.google.com.
+
+C:\Users\karth>tracert -4 www.google.com
+
+Tracing route to www.google.com [142.250.182.196]
+over a maximum of 30 hops:
+
+  1     *        *        *     Request timed out.
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7    52 ms    36 ms    45 ms  172.26.100.18
+  8    63 ms    38 ms    54 ms  192.168.83.28
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11   258 ms     *        *     74.125.50.202
+ 12    62 ms    35 ms    74 ms  216.239.43.133
+ 13    55 ms    56 ms    63 ms  142.250.208.152
+ 14   206 ms   142 ms   162 ms  142.250.56.38
+ 15   253 ms   245 ms   142 ms  142.250.226.135
+ 16   188 ms   241 ms   317 ms  142.250.214.101
+ 17   115 ms    72 ms    64 ms  bom07s28-in-f4.1e100.net [142.250.182.196]
+
+Trace complete.

@@ -1,0 +1,118 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+Loading personal and system profiles took 682ms.
+PS C:\Users\karth> Test-Connection www.google.com -Count 4
+
+Source        Destination     IPV4Address      IPV6Address                              Bytes    Time(ms)
+------        -----------     -----------      -----------                              -----    --------
+LAPTOP-QQC... www.google.com  142.250.205.100                                           32       56
+LAPTOP-QQC... www.google.com  142.250.205.100                                           32       194
+LAPTOP-QQC... www.google.com  142.250.205.100                                           32       64
+LAPTOP-QQC... www.google.com  142.250.205.100                                           32       50
+
+
+PS C:\Users\karth> Test-Connection www.facebook.com -Count 4
+
+Source        Destination     IPV4Address      IPV6Address                              Bytes    Time(ms)
+------        -----------     -----------      -----------                              -----    --------
+LAPTOP-QQC... www.facebook... 57.144.156.1                                              32       63
+LAPTOP-QQC... www.facebook... 57.144.156.1                                              32       52
+LAPTOP-QQC... www.facebook... 57.144.156.1                                              32       454
+LAPTOP-QQC... www.facebook... 57.144.156.1                                              32       58
+
+
+PS C:\Users\karth> Test-Connection www.amazon.com -Count 4
+
+Source        Destination     IPV4Address      IPV6Address                              Bytes    Time(ms)
+------        -----------     -----------      -----------                              -----    --------
+LAPTOP-QQC... www.amazon.com  23.200.49.74                                              32       67
+LAPTOP-QQC... www.amazon.com  23.200.49.74                                              32       57
+LAPTOP-QQC... www.amazon.com  23.200.49.74                                              32       49
+LAPTOP-QQC... www.amazon.com  23.200.49.74                                              32       69
+
+
+PS C:\Users\karth> Test-Connection www.github.com -Count 4
+
+Source        Destination     IPV4Address      IPV6Address                              Bytes    Time(ms)
+------        -----------     -----------      -----------                              -----    --------
+LAPTOP-QQC... www.github.com  20.207.73.82                                              32       53
+LAPTOP-QQC... www.github.com  20.207.73.82                                              32       383
+LAPTOP-QQC... www.github.com  20.207.73.82                                              32       90
+LAPTOP-QQC... www.github.com  20.207.73.82                                              32       165
+
+
+PS C:\Users\karth> Test-Connection www.cisco.com -Count 4
+
+Source        Destination     IPV4Address      IPV6Address                              Bytes    Time(ms)
+------        -----------     -----------      -----------                              -----    --------
+LAPTOP-QQC... www.cisco.com   23.220.238.70                                             32       165
+LAPTOP-QQC... www.cisco.com   23.220.238.70                                             32       192
+LAPTOP-QQC... www.cisco.com   23.220.238.70                                             32       135
+LAPTOP-QQC... www.cisco.com   23.220.238.70                                             32       162
+
+
+PS C:\Users\karth> nslookup www.google.com
+Server:  UnKnown
+Address:  192.168.43.1
+
+Non-authoritative answer:
+Name:    www.google.com
+Addresses:  2404:6800:4007:807::2004
+          142.250.205.100
+
+PS C:\Users\karth> nslookup www.facebook.com
+Server:  UnKnown
+Address:  192.168.43.1
+
+Non-authoritative answer:
+Name:    star-mini.c10r.facebook.com
+Addresses:  2a03:2880:f34e:1:face:b00c:0:25de
+          57.144.156.1
+Aliases:  www.facebook.com
+
+PS C:\Users\karth> nslookup www.amazon.com
+Server:  UnKnown
+Address:  192.168.43.1
+
+Non-authoritative answer:
+Name:    d3ag4hukkh62yn.cloudfront.net
+Addresses:  2600:9000:2241:d800:7:49a5:5fd4:b121
+          2600:9000:2241:ee00:7:49a5:5fd4:b121
+          2600:9000:2241:ba00:7:49a5:5fd4:b121
+          2600:9000:2241:cc00:7:49a5:5fd4:b121
+          2600:9000:2241:ac00:7:49a5:5fd4:b121
+          2600:9000:2241:d600:7:49a5:5fd4:b121
+          2600:9000:2241:9a00:7:49a5:5fd4:b121
+          2600:9000:2241:7e00:7:49a5:5fd4:b121
+          23.200.49.74
+Aliases:  www.amazon.com
+          tp.47cf2c8c9-frontier.amazon.com
+
+PS C:\Users\karth> nslookup www.github.com
+Server:  UnKnown
+Address:  192.168.43.1
+
+Non-authoritative answer:
+Name:    github.com
+Addresses:  64:ff9b::14cf:4952
+          20.207.73.82
+Aliases:  www.github.com
+
+PS C:\Users\karth> nslookup www.cisco.com
+Server:  UnKnown
+Address:  192.168.43.1
+
+Non-authoritative answer:
+Name:    e2867.dsca.akamaiedge.net
+Addresses:  2600:140f:6:18a::b33
+          2600:140f:6:1a7::b33
+          23.220.238.70
+Aliases:  www.cisco.com
+          www.cisco.com.akadns.net
+          wwwds.cisco.com.edgekey.net
+          wwwds.cisco.com.edgekey.net.globalredir.akadns.net
+
+PS C:\Users\karth>

@@ -1,0 +1,93 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\karth> tracert www.github.com
+
+Tracing route to github.com [20.207.73.82]
+over a maximum of 30 hops:
+
+  1     *        *        *     Request timed out.
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7   143 ms    51 ms    38 ms  172.26.100.19
+  8   180 ms    88 ms    49 ms  192.168.83.26
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11   147 ms     *       73 ms  49.44.220.185
+ 12    47 ms    84 ms    71 ms  ae22-0.ear01.maa31.ntwk.msn.net [104.44.238.220]
+ 13     *        *        *     Request timed out.
+ 14   138 ms   192 ms    76 ms  be-6-0.ibr01.maa01.ntwk.msn.net [104.44.29.131]
+ 15     *        *       80 ms  51.10.2.238
+ 16    87 ms    50 ms     *     be-1-0.ibr01.pnq20.ntwk.msn.net [104.44.16.51]
+ 17  1038 ms   660 ms   172 ms  ae106-0.rwa04.pnq20.ntwk.msn.net [104.44.20.42]
+ 18     *        *        *     Request timed out.
+ 19     *        *        *     Request timed out.
+ 20     *        *        *     Request timed out.
+ 21     *        *        *     Request timed out.
+ 22   803 ms  1303 ms   765 ms  20.207.73.82
+
+Trace complete.
+PS C:\Users\karth> tracert -d www.github.com
+
+Tracing route to github.com [20.207.73.82]
+over a maximum of 30 hops:
+
+  1     *        *        *     Request timed out.
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7    49 ms   171 ms    23 ms  172.26.100.19
+  8    47 ms    34 ms    35 ms  192.168.83.28
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11     *        *       69 ms  49.44.220.185
+ 12     *      209 ms   136 ms  104.44.238.220
+ 13     *        *        *     Request timed out.
+ 14     *        *        *     Request timed out.
+ 15     *        *        *     Request timed out.
+ 16   323 ms    68 ms     *     104.44.16.51
+ 17   166 ms   145 ms    92 ms  104.44.20.42
+ 18     *        *        *     Request timed out.
+ 19     *        *        *     Request timed out.
+ 20     *        *        *     Request timed out.
+ 21     *        *        *     Request timed out.
+ 22   220 ms    64 ms    68 ms  20.207.73.82
+
+Trace complete.
+PS C:\Users\karth> tracert -4 www.github.com
+
+Tracing route to github.com [20.207.73.82]
+over a maximum of 30 hops:
+
+  1     *        *        *     Request timed out.
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7   133 ms    54 ms    50 ms  172.26.100.18
+  8    81 ms    90 ms    62 ms  192.168.83.28
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11   188 ms    63 ms    59 ms  49.44.220.185
+ 12   367 ms    74 ms    74 ms  ae22-0.ear01.maa31.ntwk.msn.net [104.44.238.220]
+ 13    86 ms    65 ms     *     be-20-0.ibr01.maa31.ntwk.msn.net [104.44.11.239]
+ 14    76 ms     *        *     be-6-0.ibr01.maa01.ntwk.msn.net [104.44.29.131]
+ 15   155 ms     *        *     51.10.2.238
+ 16     *        *      173 ms  be-1-0.ibr01.pnq20.ntwk.msn.net [104.44.16.51]
+ 17   152 ms   165 ms    81 ms  ae106-0.rwa04.pnq20.ntwk.msn.net [104.44.20.42]
+ 18     *        *        *     Request timed out.
+ 19     *        *        *     Request timed out.
+ 20     *        *        *     Request timed out.
+ 21     *        *        *     Request timed out.
+ 22   232 ms   109 ms    82 ms  20.207.73.82
+
+Trace complete.
+PS C:\Users\karth>

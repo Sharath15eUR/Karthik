@@ -1,0 +1,72 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+Loading personal and system profiles took 605ms.
+PS C:\Users\karth> tracert www.amazon.com
+
+Tracing route to d3ag4hukkh62yn.cloudfront.net [18.67.156.60]
+over a maximum of 30 hops:
+
+  1     *        *        *     Request timed out.
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7   151 ms    31 ms    44 ms  172.26.100.19
+  8   174 ms   189 ms    51 ms  192.168.83.24
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11     *        *        *     Request timed out.
+ 12     *        *        *     Request timed out.
+ 13     *        *        *     Request timed out.
+ 14     *        *        *     Request timed out.
+ 15     *        *        *     Request timed out.
+ 16    63 ms    56 ms    60 ms  server-18-67-156-60.maa51.r.cloudfront.net [18.67.156.60]
+
+Trace complete.
+PS C:\Users\karth> tracert -d www.amazon.com
+
+Tracing route to www-amazon-com.customer.fastly.net [162.219.225.118]
+over a maximum of 30 hops:
+
+  1     *        *        *     Request timed out.
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7    35 ms    35 ms    37 ms  172.26.100.19
+  8    43 ms    33 ms    60 ms  192.168.83.26
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11   151 ms    56 ms    61 ms  49.44.220.181
+ 12    60 ms    59 ms    55 ms  162.219.225.118
+
+Trace complete.
+PS C:\Users\karth> tracert -4 www.amazon.com
+
+Tracing route to d3ag4hukkh62yn.cloudfront.net [18.67.156.60]
+over a maximum of 30 hops:
+
+  1     *        *        *     Request timed out.
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7    55 ms    51 ms    38 ms  172.26.100.19
+  8   290 ms   115 ms    66 ms  192.168.83.22
+  9     *        *        *     Request timed out.
+ 10     *        *        *     Request timed out.
+ 11     *        *        *     Request timed out.
+ 12     *        *        *     Request timed out.
+ 13     *        *        *     Request timed out.
+ 14     *        *        *     Request timed out.
+ 15     *        *        *     Request timed out.
+ 16    67 ms    61 ms    56 ms  server-18-67-156-60.maa51.r.cloudfront.net [18.67.156.60]
+
+Trace complete.
+PS C:\Users\karth>
