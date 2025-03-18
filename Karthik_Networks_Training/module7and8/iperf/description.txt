@@ -1,0 +1,99 @@
+IPERF3 
+
+sudo apt install iperf3 - to install iperf on your Linux machine.
+
+Ensure Devices Are on the Same Network
+
+Make sure both your server (running on your Ubuntu machine) and client (laptop or phone) are connected to the same Wi-Fi network.
+
+Run the iperf3 Server
+
+On your server (Ubuntu):iperf3 -s -p 5202
+
+Run Various Tests from the Client
+
+Commands:
+
+TCP Test:		iperf3 -c <server_ip> -p 5202 				{TEST #1}
+UDP Test:		iperf3 -c <server_ip> -p 5202 -u 			{TEST #2}
+Bidirectional Test:	iperf3 -c <server_ip> -p 5202 -d 			{TEST #3}
+Reverse Test:		iperf3 -c <server_ip> -p 5202 -R 			{TEST #4}
+Multicast Test:		iperf3 -c 224.0.0.1 -p 5202 -u -T 32			{TEST #5}
+			(network should support multicast)			
+
+Parallel Streams Test:	iperf3 -c <server_ip> -p 5202 -P 10			{TEST #6}
+
+Bandwidth:		The amount of data transferred per second.
+Transfer:		The total amount of data transferred.
+Retransmits:		For TCP tests, how many packets were retransmitted.
+Jitter:			Variation in packet delay (for UDP tests).
+Packet Loss:		The percentage of packets lost (for UDP tests).
+
+I have tested for localhost as of now 127.0.0.1. Similarly I can test for client machines in my network.
+
+Test #1 (TCP Test)
+
+Transfer: 14.0 GB
+Bitrate: 11.9 Gbits/sec
+
+Observation:
+	The speed is very high initially (up to 38 Gbits/sec) but fluctuates significantly, dropping to as low as 483 Mbits/sec before stabilizing around 11.9 Gbits/sec on average.
+
+	This could indicate buffer saturation or congestion.
+
+Test #2 (UDP Test)
+
+Transfer: 1.25 MB
+Bitrate: 1.04 Mbits/sec
+Jitter: 4.614 ms
+Packet loss: 0/40 (0%)\
+
+Observation:
+	This is a low-bandwidth UDP test, but no packets were lost, indicating good reliability.
+
+	The jitter values are low, meaning consistent packet delivery with minimal delay variation.
+
+Test #3 (UDP Test)
+
+Transfer: 1.28 MB
+Bitrate: 1.07 Mbits/sec
+Jitter: 2.998 ms
+Packet loss: 0/41 (0%)
+
+Observation:
+	Similar to Test #2 with low jitter and no packet loss.
+
+	Consistent low-bandwidth UDP performance.
+
+Test #4 (TCP Test)
+
+Transfer: 9.56 GB
+Bitrate: 8.21 Gbits/sec
+
+Observation:
+	Stable TCP throughput with minimal fluctuation.
+
+	Consistent multi-Gigabit performance throughout the test.
+
+Test #5 (TCP Test)
+
+Transfer: 11.6 GB
+Bitrate: 9.92 Gbits/sec
+Retransmissions: 20
+Observation:
+	High throughput but with a few retransmissions.
+
+	The congestion window (Cwnd) remains stable at 5.25 MB, indicating the connection is stable.
+	
+	Retransmissions may slightly affect performance.
+
+Test #6 (Multiple parallel TCP streams)
+
+Multiple connections:
+	Bitrates range from 1.09 Gbits/sec to 2.67 Gbits/sec for individual streams.
+
+Observation:
+	You’re using parallel streams to fully utilize the bandwidth.
+
+	The combined throughput seems to be scaling effectively, suggesting no major bottlenecks.
+
