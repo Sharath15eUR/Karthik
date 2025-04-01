@@ -11,7 +11,7 @@
 - WLC handles:  
 
   - Centralized management (roaming, QoS, security policies).  
-  - Advanced packet processing and forwarding decisions.  
+  - Advanced packet processing and forwarding decisions. 
 
 Performance Benefits:
 
