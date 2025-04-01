@@ -1,0 +1,152 @@
+1. In Which Layer in the OSI Model Is the Wi-Fi Standard/Protocol?
+
+Wi-Fi works mainly in two layers of the OSI model: the Physical Layer (Layer 1) and the Data Link Layer (Layer 2).
+
+Wi-Fi operates on two layers of the OSI model:
+
+Layer 1 (Physical Layer): Deals with transmission of raw data over radio waves that encompass many factors including frequency, modulation, and power levels.
+
+Layer 2 (Data Link Layer): Involves MAC addressing and frame control, which include data framing, error detection, and access control (CSMA/CA).
+
+
+
+2. Wi-Fi Device Used in Daily Life and Their Wireless Features
+
+Several Wi-Fi devices and their wireless specifications are listed below:
+
+- Laptop
+
+    - Wireless standard: 802.11ac (Wi-Fi 5)  
+    - Frequency: 2.4 GHz/5 GHz  
+    - Maximum speed: 1.3 Gbps  
+    - Channel width: 80 MHz  
+     
+- Smartphone
+  
+    - Wireless standard: 802.11ax (Wi-Fi 6)  
+    - Frequency: 2.4 GHz/5 GHz/6 GHz  
+    - Maximum speed: 9.6 Gbps
+    - Channel width: 160 MHz  
+
+- 802.11n  --->  Wi-Fi 4  
+- 802.11ac --->  Wi-Fi 5  
+- 802.11ax --->  Wi-Fi 6  
+
+
+
+3. What Are BSS and ESS?
+
+- The BSS (Basic Service Set):  
+    - A group of wireless devices connected to a single Access Point (AP).  
+    - Identified by BSSID (the MAC address of the AP).  
+    - Used in infrastructure mode. 
+
+- The ESS (Extended Service Set):  
+    - More than one BSS connected through distribution means like Ethernet.  
+    - Identified by ESSID (Wi-Fi network name).  
+    - Used for large networks like enterprise Wifi.
+
+
+
+4. Basic Functionality of a Wi-Fi Access Point
+
+- Signal Broadcasting:		Broadcasts radio signals enabling devices to connect wirelessly.  
+- MAC Filtering: 		Filters MAC addresses of devices to allow or deny connection.  
+- Channel Selection: 		Chooses the best frequency channel to minimize interference.  
+- Encrypted Data Transmission: 	Encrypts transmitted data using WPA/WPA2/WPA3.  
+- Traffic Management: 		Manages data traffic to optimize network performance.  
+- Supports DHCP: 		Dynamically assigns IP addresses.  
+- QoS (Quality of Service): 	Provides priority to certain types of network traffic.  
+
+
+
+5. Bridge Mode vs Repeater Mode: 
+
+Bridge Mode :
+	The purpose is to bridge (connect) two networks together. Bridge mode gets a different IP address. No speed loss. More like connecting different LANs across distance. Used in situations where it is like connecting different LANs across distance.
+
+Repeater Mode :
+	The purpose is to extend the range of the existing Wi-Fi coverage. Repeater mode retains the same IP as the main router. Speed is reduced due to signal repetition. Used in situations like expanding the Wifi that covers a particular area in households.
+
+
+
+6. Characteristics 802.11a and 802.11b differed.
+
+    		802.11a 							802.11b
+
+Frequency: 	5 GHz				 				2.4 GHz 
+Speed: 		up to 54 Mbps 							up to 11 Mbps 
+Range: 		Shorter distance coverage of approximately 35m indoors 		Approx. 100 m indoors 
+interference 	Less interference  						High Interference for Business environment Home Wi-Fi Connections. 
+
+
+
+7. Comparison of 2.4 GHz and 5 GHz Wi-Fi Bands:
+
+
+Feature 	2.4 GHz 							5 GHz 
+
+Speed 		Lower (up to 600 Mbps)						Higher (up to 9.6 Gbps) 
+Range 		Longer (greater wall penetration)				Shorter (less wall penetration) 
+Interference 	More prone to interference 					Less interference 
+Latency 	Slightly higher 						Lower 
+Channels 	11 (overlapping) 						23 (non-overlapping) 
+
+2.4GHz is Best for Long range, low bandwidth activities High speed activities whereas 5GHz is best for short range 
+
+
+
+8. Difference Between IEEE and WFA 
+
+IEEE (Institute of Electrical and Electronics Engineers)
+
+	It is a global organization building standards. It has built a Wi-Fi standard (like the 802.11 family). It provides technical specification. It is the blueprint for how Wi-Fi operates in real world.
+
+WFA (Wi-Fi Alliance)
+
+	A non-profit organization that certifies Wi-fi devices by ensuring that the devices meet the respective standards for operability and inter-operability. Moreover WFA manages the Wi-Fi which indicates that the device had been tested for reliability and connectivity.
+
+
+
+9. Types of Wi-Fi Internet Connectivity Backhaul 
+
+	Wi-Fi backhaul refers to how the network connects to the internet or other parts of the network. 
+
+Wired Ethernet backhaul: The most common and reliable, using Ethernet cables to connect APs to the internet.
+ 
+Wireless Mesh backhaul:  APs connect wirelessly to each other, extending coverage without needing wires. 
+
+Fiber-optic backhaul:    Uses high-speed fiber-optic cables to provide extremely fast internet, typically used in commercial or large-scale networks. 
+
+In my home setup, I use fiber-optic backhaul connected to a Wi-Fi 6 router, which provides fast, stable internet across the house, supporting both 2.4 GHz and 5 GHz bands.
+
+Very high capacity and used by ISPs for backhaul of large networks. 
+
+DSL (Digital Subscriber Line):
+
+This medium has a fairly moderate speed and latency, which is why it is usually used for home internet. The wire-bound connections of these satellites utilize satellites. It also has higher latencies. 
+
+Cellular (4G/5G) Backhaul:	Mobile data connectivity. Mobile hotspots are used. 
+
+My College Backhaul: 
+
+Name of Backhaul:	Mepco Schlenk Engineering College Network
+Type: 			Wired Mesh
+Speed:			up to 100 Gbps
+Latency: 		<100ms
+Frequency:		2.4 GHz and 5 GHz bands.
+
+
+
+10. Wi-Fi Topologies and Their Applications 
+
+
+Infrastructure Mode:		It is the connectivity through Access Points (AP). Clients will be connected to the home/office networks. 
+
+Ad-Hoc Mode: 			Direct peer-to-peer connection. Used in small, temporary networks. 
+
+Mesh Topology: 			Multiple nodes communicate directly. It is used in larger areas (smart cities, campuses). 
+
+Point to Point(PtP): 		Connects two locations directly. Used in long-distance connections. 
+
+Point to Multipoint (PtMP): 	One device connects to multiple devices. Used in Wi-Fi extenders and hotspots.

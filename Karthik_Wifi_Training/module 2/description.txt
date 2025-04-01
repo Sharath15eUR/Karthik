@@ -1,0 +1,162 @@
+1. SplitMAC Architecture and Its Performance Benefits
+
+	SplitMAC architecture separates the control plane and data plane between the Access Point (AP) and the Wireless LAN Controller (WLC).
+
+- AP handles:  
+
+  - RF management (signal transmission, reception).  
+  - Local frame encryption/decryption.
+  - Client association and authentication requests. 
+
+- WLC handles:  
+
+  - Centralized management (roaming, QoS, security policies).  
+  - Advanced packet processing and forwarding decisions.  
+
+Performance Benefits:
+
+	Reduces AP processing load → APs focus on RF transmission.  
+	Improves scalability → Multiple APs are managed centrally.  
+	Enhances security → Policies are enforced at the controller.  
+	Simplifies network management → Centralized control from WLC.
+
+
+
+2. CAPWAP and AP-Controller Flow
+
+	CAPWAP (Control And Provisioning of Wireless Access Points)** is a tunneling protocol used to manage APs from a WLC.  
+
+	Flow Between AP and Controller:
+
+	1. Discovery Phase:  
+  		- AP searches for the WLC using DHCP, DNS, or broadcast.  
+	2. DTLS Connection Setup:
+   		- Secure CAPWAP tunnels are established for control and data traffic.  
+	3. Configuration and Firmware Download:  
+   		- AP downloads configurations from WLC.  
+	4. AP Joins WLC: 
+   		- WLC assigns VLANs, SSIDs, and policies to AP.  
+	5. Client Management Begins:  
+   		- AP starts serving clients based on WLC policies.  
+
+
+
+3. CAPWAP in OSI Model & Tunnels
+
+	CAPWAP fits in the OSI Model:
+
+		- Control Messages: Layer 3 (Network Layer) ---> Uses UDP 5246  
+		- Data Traffic: Layer 2 (Data Link Layer)   ---> Uses UDP 5247
+
+	Two CAPWAP Tunnels & Their Purpose:
+	
+	1. Control Tunnel (UDP 5246)
+
+   		- Securely exchanges AP-WLC configurations, policies, and management data.  
+   		- Encrypted via DTLS.  
+
+	2. Data Tunnel (UDP 5247)
+
+   		- Transports client data packets between AP and WLC.  
+   		- Can be encrypted for security.  
+
+
+
+4. Difference Between Lightweight APs and Cloud-based APs
+
+	Feature		Lightweight APs			Cloud-based APs                      
+
+ 	Control Type	Managed by WLC                  Managed by Cloud Controllers         
+ 	Scalability     Limited by WLC capacity         Highly scalable                          
+ 	Management      Requires on-premises WLC        Managed via cloud dashboard          
+ 	Redundancy      Depends on WLC availability     Higher redundancy, cloud-based control   
+ 	Use Case        Enterprise networks             Remote offices, small businesses     
+
+
+
+5. How the CAPWAP Tunnel Is Maintained Between AP and WLC
+
+- Keepalive Messages:  
+  - AP and WLC exchange periodic heartbeat packets to maintain connectivity.  
+
+- DTLS Encryption:
+  - Ensures security in the control tunnel.  
+
+- Reassociation Mechanism: 
+  - If AP loses connection, it automatically re-establishes the CAPWAP tunnel. 
+ 
+- Failover Mechanism:
+  - If WLC goes down, AP can connect to a secondary WLC (if it is configured).  
+
+
+
+6. Sniffer Mode vs. Monitor Mode
+
+	Mode		Sniffer Mode					Monitor Mode
+
+Purpose     	Captures and forwards raw packets for analysis		Detects rogue APs, interference, and signal strength
+How It Works 	AP acts like a packet analyzer (like Wireshark)		AP scans all channels for RF analysis 
+Use Case 	Network troubleshooting, security audits		RF management, IDS/IPS detection
+
+
+
+7. Best AP Mode for Local Network When WLC is in WAN
+
+	Best AP Mode: FlexConnect Mode (HREAP Mode)
+
+	- Allows APs to switch traffic locally instead of sending everything to WLC.
+  
+	- How It Works:
+
+  		- Client authentication is local (AP handles it).  
+  		- Data traffic is switched locally, reducing WAN bandwidth usage.  
+  		- If WLC goes down, AP still provides local connectivity.  
+
+
+
+8. Challenges of Deploying 50+ Autonomous APs in a University
+
+- Channel Interference:  
+
+  - Without central control, APs may use overlapping channels, causing interference.  
+
+- Roaming Issues: 
+  - No seamless handoff between APs.
+  
+- Manual Configuration Burden:  
+  - Each AP requires separate SSID, security, and QoS configuration.
+  
+- Security Risks:  
+  - No centralized authentication or policy enforcement.  
+
+- Limited Scalability:  
+  - Difficult to manage large-scale Wi-Fi deployments.  
+
+Solution: Use Lightweight APs with WLC instead of standalone APs.
+
+
+
+9. What Happens If WLC Goes Down in Lightweight AP Local Mode?
+
+- Clients Remain Connected
+
+  - AP continues serving existing connected clients.
+  
+- New Clients Cannot Join  
+
+  - No new client associations.
+  
+- No Centralized Management
+
+  - QoS, VLAN tagging, and security policies stop working.
+  
+- Local Traffic Continues
+
+  - If VLANs are local, traffic between clients may still work.  
+
+To avoid downtime:  
+
+- Deploy Redundant WLCs or use FlexConnect Mode for local authentication.  
+
+
+
