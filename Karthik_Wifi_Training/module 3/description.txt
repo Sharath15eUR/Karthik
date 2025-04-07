@@ -1,0 +1,237 @@
+1. 802.11 PHY Layer Standards Comparison
+
+Standard	Frequency	Modulation	Max Data Rate		Channel Width
+		
+802.11a		5 GHz		OFDM		54 Mbps			20 MHz			
+802.11b		2.4 GHz		DSSS		11 Mbps			22 MHz		
+802.11g		2.4 GHz		OFDM		54 Mbps			20 MHz		
+802.11n		2.4/5 GHz	OFDM + MIMO	600 Mbps		20/40 MHz	
+802.11ac	5 GHz		OFDM + MU-MIMO	1.3 Gbps – 6.9 Gbps	20/40/80/160 MHz	
+802.11ax	2.4/5/6 GHz	OFDMA + MU-MIMO	9.6 Gbps		20–160 MHz	
+
+These are the 802.11 PHY layer standards that are being compared based on their frequency, modulation type , data rate and channel width 
+wherein the modulation types are abbreviated as,
+
+OFDM 	-  Orthogonal Frequency-Division Multiplexing
+OFDMA   -  Orthogonal Frequency-Division Multiple Access
+DSSS 	-  Direct Sequence Spread Spectrum
+MIMO 	-  Multiple Input Multiple Output
+MU-MIMO -  Multiuser Multiple Input Multiple Output
+
+
+
+2. DSSS vs. FHSS
+
+DSSS:
+	DSSS stands for Direct Sequence Spread Spectrum wherein it spreads signal using pseudo-random code. It is better against narrowband interference., It is used in 802.11b and it has higher speed up to 11Mbps.
+
+FHSS:
+	FHSS stands for Frequency Hopping Spread Spectrum wherein it switches frequencies rapidly in sequence. It is more resistant to wideband interference. It is used in early 802.11 standards and it has lower speed up to 2Mbps when compared to DSSS.
+
+
+
+3. How Modulation Schemes Work in the PHY Layer?
+
+	Modulation is the process of converting digital data (bits: 0s and 1s) into analog signals (radio waves) that can travel over the air.
+
+	In the PHY layer of Wi-Fi, this is essential because:
+		Computers speak in binary (1s and 0s), but antennas transmit and receive waves. Higher-order modulations implies that they are faster in operation but not much prone to error. Hence, for a better quality the signal must not prone to be error.
+
+	The Process:
+
+		a. Digital bits → grouped into chunks (symbols).
+
+		b. Each symbol is mapped to a signal (with specific amplitude, phase, and frequency).
+
+		c. The radio transmits the signal over the air.
+
+		d. The receiver demodulates the signal back into bits.
+        
+        Modulation Schemes in PHY layer:
+
+		Modulation	Bits/Symbol	Used In			Speed
+
+		BPSK		1		802.11a/b/g/n		Low
+		QPSK		2		802.11a/g/n/ac		Medium
+		16-QAM		4		802.11a/g/n/ac		High	
+		64-QAM		6		802.11n/ac		Higher
+		256-QAM		8		802.11ac		Very High
+		1024-QAM	10		802.11ax (Wi-Fi 6)	Ultra High
+
+
+
+4.  Significance of OFDM in WLAN:
+	
+	OFDM (Orthogonal Frequency Division Multiplexing) divides one channel into many subcarriers, each carrying a small part of the data.
+
+	Advantages :
+	
+		Resistant to multipath fading
+
+		Efficient spectrum usage
+
+		Higher data rates
+	
+		Used in 802.11a/g/n/ac/ax
+
+
+
+5. Wi-Fi Frequency Bands:
+
+	Wi-Fi uses radio frequency bands to transmit data wirelessly. 
+	
+	The most common frequency bands are:
+
+		a. 2.4 GHz
+
+		b. 5 GHz
+
+		c. 6 GHz (newer, Wi-Fi 6E & Wi-Fi 7)
+
+	Each band is split into channels, like TV channels, to allow multiple networks/devices to operate without interfering with each other.
+
+	Band	Freq Range	Max Speed	Channels		Use Case
+
+	2.4 GHz	2.4–2.4835 GHz	~600 Mbps	3 non-overlapping	Longer range, older devices
+	5 GHz	5.1–5.8 GHz	~1.3–6.9 Gbps	Many			Fast speed, short range
+	6 GHz	5.9–7.1 GHz	~9.6 Gbps	59 (20 MHz each)	Ultra-fast, new tech only
+
+
+
+6. Guard Intervals in WLAN:
+
+	A Guard Interval (GI) separates symbols to avoid inter-symbol interference caused by multipath.
+
+	Typical values:
+
+		a. Long GI = 800 ns
+
+		b. Short GI = 400 ns
+
+ Shorter GI improves efficiency by increasing the number of symbols per second thereby it ranges  up to 11% speed boost (used in 802.11n/ac/ax).
+
+
+
+7. 802.11 PHY Layer Frame Structure:
+
+	The PHY (Physical) Layer Frame is the format used to transmit data over the air in Wi-Fi. It's like an envelope that wraps your data with extra information so it can be properly decoded, synchronized, and understood by the receiver. It consists of two major sublayers:
+
+	Preamble
+
+	PLCP (Physical Layer Convergence Protocol)
+
+	PMD (Physical Medium Dependent)
+	
+	Payload(PSDU)
+
+	Tailing and Padding
+
+	
+	Preamble:
+
+		The preamble facilitates synchronization between the transmitter and receiver. 
+		It helps the receiver detect and lock onto the incoming signal. 
+		It consists of a short training sequence (STS) and a long training sequence (LTS), according to ResearchGate [7].
+
+	Header:
+
+		The header contains information needed by the physical layer transmitters and receivers. 
+		It includes fields like modulation-code rate and the length of the data part. 
+		The header is 24 bits long and is always BPSK modulated. 
+
+	MPDU (MAC Protocol Data Unit):
+
+		The MPDU contains the data from the MAC layer, which is the data to be transmitted. 	
+		The MAC layer adds headers and trailers to the MAC Service Data Unit (MSDU) to create the MPDU. 
+		The MPDU is then passed to the physical layer for transmission. 
+
+	PLCP Protocol Data Unit (PPDU):
+
+		The 802.11 standard refers to the composite frame (MPDU with preamble and header) as a PPDU. 
+		Physical Layer Convergence Procedure (PLCP):
+		The PLCP acts as an adaptation layer, responsible for building packets for different physical layer technologies. 
+		It also handles Clear Channel Assessment (CCA) mode. 
+
+	Physical Medium Dependent (PMD) layer:
+
+		The PMD layer specifies modulation and coding techniques. 
+
+	PHY management layer:
+
+		The PHY management layer takes care of management issues like channel tuning. 
+
+
+
+8. OFDM vs. OFDMA:
+
+ OFDM :
+	OFDM stands for Orthogonal Frequency Division Multiplexing wherein it is used in 802.11a/g/n/ac. Here, entire channel used by one user. It is less efficient in multi-user scenarios. Best in single user transmission.
+
+ OFDMA :
+	OFDMA stands for  Orthogonal Frequency-Division Multiple Access wherein it is used in 802.11ax (Wi-Fi 6). Here, multiple users share subcarriers. It has high efficiency and low latency. Best in Multi-user parallel transmission.
+
+
+
+9. MIMO vs. MU-MIMO:
+
+	Feature		MIMO (Single-user)			MU-MIMO (Multi-user)
+
+	Usage		802.11n, 802.11ac			802.11ac (downlink), 802.11ax (up/down)
+	Users Served	One at a time				Multiple simultaneously
+	Antennas	Multiple transmit/receive antennas	Same, but shared among users
+	Benefit		Boosts single-user throughput		Boosts total network capacity
+
+
+
+10.  PPDU, PLCP, and PMD in PHY Layer:
+
+	PPDU (Physical Protocol Data Unit):
+
+		The full frame passed from PHY to the air (includes PLCP + PSDU).
+
+	PLCP (Physical Layer Convergence Protocol):
+
+		Prepares data for the physical medium; adds preamble and header.
+
+	PMD (Physical Medium Dependent):
+
+		Responsible for transmitting/receiving bits over the air.
+
+
+
+11. Types of PPDU & Format Across Wi-Fi Generations:
+
+	Wi-Fi Standard	PPDU Type			Description
+
+	802.11a/g	Legacy OFDM PPDU		Basic OFDM
+	802.11n		HT (High Throughput) PPDU	Adds MIMO, short GI
+	802.11ac	VHT (Very High Throughput) PPDU	Wider channels, MU-MIMO
+	802.11ax	HE (High Efficiency) PPDU	Adds OFDMA, BSS coloring
+
+ Here each PPDU includes preamble, header , PSDU and tailing/padding unit.
+
+
+
+12. How is Wi-Fi Data Rate Calculated?
+
+	Data Rate = (Number of Subcarriers) × (Bits per Symbol) × (Symbol Rate) × (Number of Spatial Streams) × (Code Rate)
+
+	This formula is used to calculate the data rate for every Wi-Fi standard based on different parameters. For example let us take Wi-Fi 5 (802.11ax) which can be explained as,
+		
+		80 MHz channel
+
+		256-QAM (8 bits)
+
+		Code rate 5/6
+
+		400 ns GI
+
+		2 Spatial Streams
+
+	Data Rate comes around 866.7 Mbps approximatley when we apply the above values in the formula.
+	
+	
+	
+
+		
+	
