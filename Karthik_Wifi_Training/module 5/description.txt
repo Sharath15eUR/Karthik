@@ -1,0 +1,140 @@
+1. WiFi-5 Vs WiFi-6 Vs WiFi-6E Vs WiFi-7
+
+Feature		Wi-Fi 5 (802.11ac)	Wi-Fi 6 (802.11ax)	Wi-Fi 6E	Wi-Fi 7 (802.11be)
+
+Max Speed	around 3.5 Gbps		around 9.6 Gbps		Same as Wi-Fi 6	Up to 46 Gbps (theoretical)
+Frequency Bands 5 GHz			2.4 GHz & 5 GHz		Adds 6 GHz 	2.4, 5, and 6 GHz
+Modulation	256-QAM			1024-QAM		1024-QAM	4096-QAM
+OFDMA		No			Yes			Yes		Yes
+MU-MIMO		Downlink only		Uplink & Downlink (8x8) Same		Uplink/Downlink Multi-RU
+Channel Width	80/160 MHz		20/40/80/160 MHz	Up to 160 MHz	Up to 320 MHz
+Latency		Moderate		Lower latency		Lower		Extremely low latency (AR/VR, gaming)
+TWT(Power Saving) No			Yes			Yes		Yes
+
+All have backward compatibility.
+
+Wi-Fi 5 (802.11ac): Introduced faster speeds over the 5 GHz band but lacked advanced features like OFDMA and uplink MU-MIMO.
+
+Wi-Fi 6 (802.11ax): Enhanced performance with higher speeds, lower latency, and better efficiency in crowded environments through technologies like OFDMA and TWT.
+
+Wi-Fi 6E: Extended Wi-Fi 6 capabilities into the 6 GHz band, offering additional spectrum for improved performance.
+
+Wi-Fi 7 (802.11be): Represents a significant leap with theoretical speeds up to 46 Gbps, ultra-wide 320 MHz channels, 4096-QAM modulation, and advanced features like Multi-Link Operation (MLO) and enhanced MU-MIMO, making it ideal for high-demand applications like AR/VR and 16K streaming.​
+
+
+2. Role of OFDMA in Wi-Fi 6
+
+OFDMA (Orthogonal Frequency Division Multiple Access):
+
+Divides a channel into multiple subcarriers called Resource Units.
+
+Allows multiple devices to transmit/receive simultaneously on different RUs.
+
+Benefits:
+
+	Efficient bandwidth use
+	Reduced latency
+	Better performance in high-density areas (offices, stadiums) like some big setups.
+
+
+3. Benefits of Target Wake Time (TWT) in Wi-Fi 6
+
+TWT allows devices to schedule communication times with the access point.
+
+Devices can "sleep" longer and wake only when needed.
+
+Ideal for IoT:
+
+	Lower power consumption
+	Longer battery life
+	Less congestion in the airwaves
+
+
+4. Significance of 6 GHz in Wi-Fi 6E
+
+Adds a new, clean band (5.925–7.125 GHz)
+
+More spectrum results up to 14 additional 80 MHz channels or 7 extra 160 MHz channels
+
+No legacy devices results in less interference
+
+Enables high throughput and low latency
+
+
+5. WiFi-6 Vs WiFi-6E
+
+Feature		Wi-Fi 6			Wi-Fi 6E
+
+Bands		2.4 & 5 GHz		2.4, 5 & 6 GHz
+Interference	Higher (crowded bands)	Lower (clean 6 GHz)
+Range		Better at 2.4 GHz	Slightly lower at 6 GHz
+Channels	Limited			More non-overlapping
+Device Support	Backward compatible	Needs Wi-Fi 6E devices
+
+
+6. Major Innovations in Wi-Fi 7 (802.11be)
+
+320 MHz channel width
+
+4096-QAM (higher data rate)
+
+Multi-Link Operation (MLO)
+
+Preamble puncturing (improves spectrum usage)
+
+Enhanced MU-MIMO (16 streams)
+
+Improved latency and throughput for gaming, VR, etc.
+
+
+7. Multi-Link Operation (MLO) in Wi-Fi 7
+
+Allows simultaneous transmission across multiple bands/channels (e.g., like 5 & 6 GHz)
+
+Enhances:
+
+	Throughput (more data paths)
+	Redundancy (failover if one link degrades)
+	Latency (parallel data paths = faster delivery)
+
+
+8. Purpose of 802.11k and 802.11v (Roaming Enhancements)
+
+Standard	Purpose				Role in Roaming
+
+802.11k		Neighbor Reports		AP helps device find nearby APs
+802.11v		BSS Transition Management	AP suggests best AP to roam to
+
+Together, they enable the client to make smarter roaming decisions rather than selecting randomly.
+
+
+9. Fast BSS Transition (802.11r)
+
+Speeds up the authentication process when roaming between APs
+
+Uses fast handshake via pre-authentication
+
+Crucial for VoIP, video calls, gaming and VR where we can’t afford delay
+
+
+10. 802.11k/v/r Working Together in Enterprise Roaming
+
+802.11k: Client learns about neighbors (AP list)
+
+802.11v: AP suggests the best candidate
+
+802.11r: Fast transition to the selected AP
+
+Together, they provide:
+
+	Seamless roaming
+	No dropped calls or buffering
+	Better user experience in large WLANs (universities, hospitals, enterprise)
+
+
+
+
+
+
+
+
