@@ -1,0 +1,136 @@
+1. Significance of MAC Layer and OSI Position
+
+The MAC (Medium Access Control) layer:
+
+	Sits in the Data Link Layer (Layer 2) of the OSI model.
+	Controls access to the wireless medium (who transmits, when, and how).
+	Ensures reliable data delivery by framing, addressing, and error checking.
+
+
+
+2. 802.11 MAC Header Frame Format
+
+Field				Description
+
+Frame Control			Type/subtype of frame, QoS, etc.
+Duration/ID			Time the medium is reserved
+Address 1 (Receiver)		Destination MAC address
+Address 2 (Transmitter)		Source MAC address
+Address 3 (BSSID/AP)		Identifies the AP
+Sequence Control		Frame sequencing for order
+Address 4 (only in WDS)		Used in mesh/WDS networks
+QoS Control (optional)		QoS level (for voice/video)
+HT/VHT Control (optional)	For 802.11n/ac/ax enhancements
+Frame Body			Actual data payload
+FCS (Frame Check Sequence)	Error detection (CRC)
+
+
+
+3. MAC Layer Functionalities (Management, Control, Data)
+
+Plane		Functionalities
+
+Management	Beaconing, Probing, Association, Authentication, Disassociation, De-authentication
+Control		RTS/CTS, ACK, Block ACK, PS-Poll
+Data		Data transmission, Acknowledgment, QoS delivery
+
+
+4. Scanning Process and Types
+
+Scanning is actually finding available Wi-Fi networks.
+
+	a. Passive Scanning:
+		Client listens to beacons from APs on each channel.
+		Lower power, slower discovery.
+
+	b. Active Scanning:
+		Client sends probe requests.
+		APs respond with probe responses.
+		Faster, but uses more power.
+
+
+5. Client Association Process
+
+Scanning – Passive/active
+
+Authentication – Open system or shared key
+
+Association Request – Client requests to join AP
+
+Association Response – AP accepts (or rejects)
+
+4-Way Handshake (if WPA/WPA2) – Secure key exchange
+
+
+6. EAPOL 4-Way Handshake and Key Derivation
+
+Used in WPA2/WPA3 to securely exchange encryption keys.
+
+Step				Description
+
+1. AP to STA (ANonce)		Sends a random number (nonce)
+2. STA to AP (SNonce + MIC)	Sends its own nonce and a message integrity code
+3. AP to STA (GTK + MIC)	Sends Group Temporal Key
+4. STA to AP (ACK)		Confirms reception
+
+
+7. MAC Layer Power Saving Schemes
+
+PSM (Power Save Mode):
+	Client sleeps and wakes to check for buffered frames.
+
+TWT (Target Wake Time – Wi-Fi 6):
+	Devices schedule exact wake-up times to save energy.
+
+U-APSD (Unscheduled Automatic Power Save Delivery):
+	Triggered delivery in QoS applications (VoIP).
+
+
+8. Medium Access Control Methodologies
+
+CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance):
+
+	Listen then Wait if busy then Backoff then Transmit
+
+RTS/CTS (Request to Send / Clear to Send):
+
+	Optional handshake to avoid hidden node collisions
+
+DCF (Distributed Coordination Function):
+
+	Basic access mechanism for all stations
+
+EDCA (Enhanced Distributed Channel Access):
+
+	Used in QoS to prioritize voice/video traffic
+
+
+9. Block ACK Mechanism
+
+The Block Acknowledgment (Block ACK or BA) mechanism, introduced in IEEE 802.11e and made mandatory in 802.11n, enhances wireless network efficiency by allowing multiple data frames to be acknowledged collectively, rather than individually.​
+
+Traditionally, each data frame transmitted over Wi-Fi required an individual acknowledgment (ACK) from the receiver. Block ACK streamlines this process by enabling the sender to transmit a series of data frames (MAC Protocol Data Units or MPDUs) and then receive a single acknowledgment that covers all of them. This is achieved through a negotiation process using Add Block ACK (ADDBA) request and response frames, establishing a Block ACK session. The receiver then sends a Block ACK frame containing a bitmap indicating the success or failure of each frame in the block .
+
+
+Benefits:
+
+	Improved Throughput
+	Enhanced Efficiency​
+	Selective Re-transmission
+	Reduced Latency
+
+
+10.  A-MSDU Vs A-MPDU Vs A-MSDU-in-A-MPDU
+
+Term						Description
+
+A-MSDU (Aggregate MAC Service Data Unit)	Multiple MSDUs combined into one MAC frame
+A-MPDU (Aggregate MAC Protocol Data Unit)	Multiple MAC frames packed into one PHY transmission
+A-MSDU-in-A-MPDU				Nested: First aggregate data (A-MSDU), then bundle into A-MPDU
+
+Benefits:
+
+	Increases efficiency
+	Reduces overhead
+	Works better with high-throughput standards (802.11n/ac/ax)
+
