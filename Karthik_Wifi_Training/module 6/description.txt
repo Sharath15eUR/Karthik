@@ -1,0 +1,112 @@
+1. What are the pillars of Wi-Fi security?
+
+The three main pillars of Wi-Fi security are:
+
+	Authentication: Verifies the identity of devices trying to connect.
+
+	Encryption: Protects data transmitted over the air from being read by unauthorized users.
+
+	Integrity: Ensures that the data hasn’t been tampered with during transmission.
+
+
+2. Difference between Authentication and Encryption in Wi-Fi security
+
+		Authentication				Encryption
+
+Purpose		Verifies the identity of users/devices	Protects data from eavesdropping
+
+Occurs during	Before data transmission		During data transmission
+
+Example 	WPA2-PSK, WPA2-Enterprise (802.1X)	AES (WPA2/WPA3), TKIP (WPA)
+
+
+3. Differences between WEP, WPA, WPA2, and WPA3
+
+Feature		WEP		WPA		WPA2		WPA3
+
+Introduced	1997		2003		2004		2018
+
+Encryption	RC4		TKIP + RC4	AES (CCMP)	AES (GCMP-256)
+
+Security	Weak		Better than WEP	Strong		Very Strong
+
+Authentication	Shared Key	PSK/802.1X	PSK/802.1X	SAE (Simult auth of eql)
+
+Status		Deprecated	Deprecated	Widely used	Emerging standard
+
+
+4. Why is WEP considered insecure compared to WPA2 or WPA3?
+
+	Weak encryption (RC4) with predictable IV (Initialization Vectors)
+
+	Short key lengths (40 or 104 bits)
+
+	Vulnerable to key recovery attacks (e.g., aircrack-ng)
+
+	Cannot prevent replay attacks
+
+	Thus, WEP can be cracked in minutes using modern tools.
+
+
+5. Why was WPA2 introduced?
+
+WPA2 was introduced to:
+
+	Replace WPA (which used the weak TKIP protocol)
+
+	Provide strong encryption using AES-CCMP
+
+	Ensure compliance with IEEE 802.11i security standards
+
+	Address known vulnerabilities in WPA
+
+
+6. What is the role of the Pairwise Master Key (PMK) in the 4-way handshake?
+
+	The PMK is derived from the passphrase (in WPA2-PSK) or from the RADIUS server (in WPA2-Enterprise).
+
+	It is used to generate the Pairwise Transient Key (PTK) during the 4-way handshake.
+
+	The PTK secures unicast traffic between the client and access point.
+
+
+7. How does the 4-way handshake ensure mutual authentication between the client and the access point?
+
+	Both client and AP prove they know the PMK without sending it.
+
+	Each sends a nonce (random number), and both derive the same PTK.
+
+	If the Message Integrity Code (MIC) is valid, it confirms that both share the same PMK, achieving mutual authentication.
+
+
+8. What will happen if we put a wrong passphrase during a 4-way handshake?
+
+	The client and AP will derive different PMKs and PTKs.
+
+	MIC verification will fail.
+
+	The handshake will not complete, and the client cannot connect to the Wi-Fi network.
+
+
+9. What problem does 802.1X solve in a network?
+
+	802.1X solves the problem of unauthorized access by:
+
+		Providing port-based network access control
+
+		Requiring user/device authentication before allowing network access
+
+		Preventing rogue users from connecting to wired or wireless networks
+
+
+10. How does 802.1X enhance security over wireless networks?
+
+	Uses RADIUS servers for centralized authentication
+
+	Supports EAP (Extensible Authentication Protocol) methods like EAP-TLS
+
+	Separates authentication from encryption, allowing secure dynamic key generation
+
+	Mitigates attacks like credential theft and spoofing in enterprise environments
+
+
