@@ -1,0 +1,66 @@
+E:\EUR  TRNG\Karthik_Adv_C_Training\module 1>ls
+
+day_planner.c  day_planner.exe
+
+E:\EUR  TRNG\Karthik_Adv_C_Training\module 1>day_planner
+
+-----!!!!-YO-!!!!-----
+------DAY_PLANNER-----
+-----!!!!-YO-!!!!-----
+
+!! Yo ppl enter your task for the day #$ for each day --
+Give 'exit' to terminate.
+
+Enter day name (like 'Monday'): Monday
+Enter up to 3 tasks for Monday:
+Task 1 (type 'end' to stop): coverity_batch_2_close
+Task 2 (type 'end' to stop): end
+
+Enter day name (like 'Monday'): Tuesday
+Enter up to 3 tasks for Tuesday:
+Task 1 (type 'end' to stop): coverity_batch_3_fix
+Task 2 (type 'end' to stop): end
+
+Enter day name (like 'Monday'): Wednesday
+Enter up to 3 tasks for Wednesday:
+Task 1 (type 'end' to stop): update_story_sprint
+Task 2 (type 'end' to stop): end
+
+Enter day name (like 'Monday'): Thursday
+Enter up to 3 tasks for Thursday:
+Task 1 (type 'end' to stop): coverity_batch_3_verify
+Task 2 (type 'end' to stop): coverity_batch_3_close
+Task 3 (type 'end' to stop): end
+
+Enter day name (like 'Monday'): Friday
+Enter up to 3 tasks for Friday:
+Task 1 (type 'end' to stop): summary_of_week
+Task 2 (type 'end' to stop): end
+
+Enter day name (like 'Monday'): exit
+
+Weekly Task Schedule:
+
+Monday:
+  - coverity_batch_2_close
+
+Tuesday:
+  - coverity_batch_3_fix
+
+Wednesday:
+  - update_story_sprint
+
+Thursday:
+  - coverity_batch_3_verify
+  - coverity_batch_3_close
+  - coverity_batch_3_close
+
+  - coverity_batch_3_close
+  - coverity_batch_3_close
+
+Friday:
+  - summary_of_week
+
+Saturday:
+
+Sunday:

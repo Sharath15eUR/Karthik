@@ -1,0 +1,7 @@
+Enter the number of elements: 6
+
+Enter 6 numbers:
+-5 2 9 4 -7 6
+
+Rearranged array (even before odd):
+2 4 6 -5 9 -7
