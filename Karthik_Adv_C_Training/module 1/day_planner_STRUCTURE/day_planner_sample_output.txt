@@ -1,9 +1,3 @@
-E:\EUR  TRNG\Karthik_Adv_C_Training\module 1>ls
-
-day_planner.c  day_planner.exe
-
-E:\EUR  TRNG\Karthik_Adv_C_Training\module 1>day_planner
-
 -----!!!!-YO-!!!!-----
 ------DAY_PLANNER-----
 -----!!!!-YO-!!!!-----
